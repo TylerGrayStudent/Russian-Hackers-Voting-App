@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="jdbc">
+    <CLASSES>
+      <root url="file://C:/Program Files/MySQL/Connector C++ 8.0/include/jdbc" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://C:/Program Files/MySQL/Connector C++ 8.0/include/jdbc" recursive="false" />
+  </library>
+</component>
