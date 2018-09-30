@@ -1,4 +1,4 @@
-package com.csci360.electionapp.foundation.database;
+package com.csci360.electionapp.foundation;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
