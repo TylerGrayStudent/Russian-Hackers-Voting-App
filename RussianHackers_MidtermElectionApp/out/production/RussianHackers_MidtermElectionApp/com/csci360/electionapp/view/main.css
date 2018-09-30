@@ -1,0 +1,44 @@
+/*
+CSS Created By Tyler Gray
+
+#2196f3 - Light Blue
+#b2b2b2 - Gray of Font
+#f4f4f4 - Gray of bkground color
+#1e88e5 - Darker blue on hover for button
+
+
+
+*/
+
+.root{
+  -fx-background: #f4f4f4;
+  -fx-text-fill: -text-light;
+  -fx-prompt-text-fill: rgba(0,0,0,.3);
+
+  -text-disabled: -text-disabled-light;
+  -background-disabled:rgba(0,0,0,.12);
+  -background-fill: -text-light;
+}
+.text-field {
+    -fx-background-color: -fx-text-box-border, -fx-background ;
+    -fx-background-insets: 0, 0 0 1 0 ;
+    -fx-background-radius: 0 ;
+    -fx-text-fill: #b2b2b2;
+    -fx-font-family: 'Calibri';
+    -fx-control-inner-background: orange;
+}
+.text-field:focused {
+    -fx-background-color: -fx-focus-color, -fx-background ;
+    -fx-control-inner-background: orange;
+
+}
+
+
+.button{
+    -fx-background-color: #2196f3;
+    -fx-text-fill: white;
+    -fx-border-radius: 0px;
+}
+.button:hover{
+    -fx-background-color: #1e88e5;
+}

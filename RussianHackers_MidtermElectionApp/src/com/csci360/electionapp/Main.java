@@ -6,6 +6,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import jfxtras.styles.jmetro8.JMetro;
+
 
 import java.io.IOException;
 
@@ -29,6 +31,7 @@ public class Main extends Application {
     public void initRootLayout() {
         try {
             // Load root layout from fxml file.
+
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("view/rootUI.fxml"));
             rootLayout = (BorderPane) loader.load();

@@ -40,13 +40,13 @@
                   <ColumnConstraints />
                </columnConstraints>
             </GridPane>
-            <Label prefHeight="134.0" prefWidth="252.0" style="-fx-font-family: 'Calibri';" text="SC Election System" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Label prefHeight="82.0" prefWidth="198.0" style="-fx-font-family: 'Calibri';" text="SC Election System" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
-                  <Font name="System Bold" size="31.0" />
+                  <Font name="System Bold" size="22.0" />
                </font></Label>
             <ButtonBar buttonMinWidth="80.0" prefHeight="133.0" prefWidth="21.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <buttons>
-                  <Button contentDisplay="CENTER" minWidth="0.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="211.0" text="Register" translateX="-20.0" />
+                  <Button minWidth="0.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="211.0" text="Register" />
                   <Button minWidth="49.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="267.0" text="Log In" textAlignment="CENTER" />
                </buttons>
                <padding>
