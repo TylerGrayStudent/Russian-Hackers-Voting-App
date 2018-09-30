@@ -1,4 +1,4 @@
-package com.csci360.electionapp;
+package com.csci360.electionapp.view;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -6,7 +6,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import jfxtras.styles.jmetro8.JMetro;
+
+import com.gluonhq.charm.glisten.control.TextField;
 
 
 import java.io.IOException;
@@ -24,7 +25,8 @@ public class Main extends Application {
 
         initRootLayout();
         showLogInWindow();
-        showRegistationWindow();
+        //showRegistationWindow();
+       // primaryStage.setFullScreen(true);
     }
 
 
@@ -33,13 +35,15 @@ public class Main extends Application {
             // Load root layout from fxml file.
 
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/rootUI.fxml"));
+            loader.setLocation(Main.class.getResource("rootUI.fxml"));
             rootLayout = (BorderPane) loader.load();
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
+
             primaryStage.show();
+
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -49,7 +53,7 @@ public class Main extends Application {
     public void showRegistationWindow() throws Exception {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/RegistrationUI.fxml"));
+            loader.setLocation(Main.class.getResource("RegistrationUI.fxml"));
             AnchorPane registrationWindow = (AnchorPane) loader.load();
 
             rootLayout.setCenter(registrationWindow);
@@ -63,10 +67,11 @@ public class Main extends Application {
     public void showLogInWindow() throws Exception{
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/LoginUI.fxml"));
+            loader.setLocation(Main.class.getResource("LoginUI.fxml"));
             AnchorPane loginWindow = (AnchorPane) loader.load();
-
             rootLayout.setCenter(loginWindow);
+            logInUIController controller = loader.getController();
+            controller.setMain(this);
 
         } catch (Exception e) {
             e.printStackTrace();

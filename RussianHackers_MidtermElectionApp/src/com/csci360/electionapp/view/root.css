@@ -1,0 +1,27 @@
+/*
+CSS Created By Tyler Gray
+
+#2196f3 - Light Blue
+#b2b2b2 - Gray of Font
+#f4f4f4 - Gray of bkground color
+#1e88e5 - Darker blue on hover for button
+
+5
+
+*/
+
+.root{
+    -fx-background: #f4f4f4;
+    -fx-text-fill: -text-light;
+    -fx-prompt-text-fill: rgba(0,0,0,.3);
+
+    -text-disabled: -text-disabled-light;
+    -background-disabled:rgba(0,0,0,.12);
+    -background-fill: -text-light;
+}
+
+.tool-bar{
+    -fx-background-color: #2196f3 ;
+
+
+}

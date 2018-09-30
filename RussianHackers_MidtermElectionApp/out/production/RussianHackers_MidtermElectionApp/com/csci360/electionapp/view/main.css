@@ -40,3 +40,7 @@ CSS Created By Tyler Gray
 .button:hover{
     -fx-background-color: #1e88e5;
 }
+
+.label{
+    -fx-font-family: "Calibri Light";
+}
