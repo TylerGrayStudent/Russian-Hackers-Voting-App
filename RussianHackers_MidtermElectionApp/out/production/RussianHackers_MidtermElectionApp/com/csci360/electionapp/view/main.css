@@ -25,11 +25,9 @@ CSS Created By Tyler Gray
     -fx-background-radius: 0 ;
     -fx-text-fill: #b2b2b2;
     -fx-font-family: 'Calibri';
-    -fx-control-inner-background: orange;
 }
 .text-field:focused {
     -fx-background-color: -fx-focus-color, -fx-background ;
-    -fx-control-inner-background: orange;
 
 }
 
