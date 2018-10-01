@@ -1,5 +1,6 @@
 package com.csci360.electionapp.view;
 
+import com.csci360.electionapp.tech.security.Security;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -23,11 +24,15 @@ public class Main extends Application {
         this.primaryStage.setTitle("Election System");
 
         initRootLayout();
-        /// showLogInWindow();
+         showLogInWindow();
         //showSettingsWindow();
         //showRegistrationWindow();
        // primaryStage.setFullScreen(true);
-        showCandidateSelectionScreen();
+       // showCandidateSelectionScreen();
+        System.out.println(Security.generateStorngPasswordHash("g7yz8i8r"));
+        System.out.println(Security.generateStorngPasswordHash("hunter2"));
+
+
     }
 
 
@@ -89,9 +94,6 @@ public class Main extends Application {
             loader.setLocation(Main.class.getResource("SettingsUI.fxml"));
             BorderPane registrationWindow = (BorderPane) loader.load();
             rootLayout.setCenter(registrationWindow);
-//            LogInUIController controller = loader.getController();
- //           controller.setMain(this);
-
             /*
             Will be called from a controller. Just used to test for now
              */

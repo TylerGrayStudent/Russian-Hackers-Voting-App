@@ -2,11 +2,17 @@ package com.csci360.electionapp.view;
 
 //import java.awt.*;
 
+import com.csci360.electionapp.foundation.MySQLAccess;
+import com.csci360.electionapp.tech.security.Security;
 import com.gluonhq.charm.glisten.control.TextField;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
+
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 
 public class LogInUIController {
 
@@ -35,11 +41,23 @@ public class LogInUIController {
 
     }
     @FXML
-    void loginclicked(MouseEvent event) {
-        System.out.println("User Info");
-        System.out.println(userName.getText());
-        System.out.println(password.getText());
-        System.out.println(authentication.getText());
+    void loginclicked(MouseEvent event) throws InvalidKeySpecException, NoSuchAlgorithmException {
+        //String userUserName = userName.getText().toLowerCase();
+        //String userPasswordHashed = Security.generateStorngPasswordHash(password.getText());
+        //String userAuthentication = authentication.getText();
+        MySQLAccess db = new MySQLAccess();
+        try {
+            if(db.verifyLogIn(userName.getText(),password.getText()))
+            {
+                System.out.println("Allowed User");
+            }
+            else{
+                System.out.println("Denied User");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
     }
 

@@ -13,12 +13,16 @@ public class MySQLAccess {
     private Statement statement = null;
     private PreparedStatement preparedStatement = null;
     private ResultSet resultSet = null;
-    private String dbName = "Test";
+    private String dbName = "election_system";
     private String dbUserName = "Tyler";
     private String dbPassword = "g7yz8i8r";
     private String dbIP = "electionsystem.c9taptqlaltr.us-west-2.rds.amazonaws.com";
     private String connectionString = "jdbc:mysql://" + dbIP + ":3306/" + dbName + "?user=" + dbUserName + "&password=" + dbPassword;
 
+
+    public MySQLAccess(){
+
+    }
     public void readDataBase() throws Exception {
         try {
 
@@ -42,14 +46,25 @@ public class MySQLAccess {
 
     }
 
-    private void connectToDB() throws Exception{
-        connect = DriverManager.getConnection(connectionString);
-        statement = connect.createStatement();
-
+    public boolean verifyLogIn(String userName, String passwordHash) throws Exception {
+        Connection connection = getConnection();
+        statement = connection.createStatement();
+        String sql = "select *  from users where username = '" + userName + "' and password = '" + passwordHash + "'";
+        resultSet = statement.executeQuery(sql);
+        //writeResultSet(resultSet);
+        System.out.println(userName + passwordHash);
+        if(resultSet.next()){
+            return true;
+        }
+        else {
+            return false;
+        }
 
     }
 
-    private void handleLogInButton(){
+    private Connection getConnection() throws Exception{
+        connect = DriverManager.getConnection(connectionString);
+        return connect;
 
     }
 
