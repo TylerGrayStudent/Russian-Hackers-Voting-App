@@ -3,6 +3,7 @@ package com.csci360.electionapp.view;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -22,10 +23,11 @@ public class Main extends Application {
         this.primaryStage.setTitle("Election System");
 
         initRootLayout();
-     //   showLogInWindow();
-        showSettingsWindow();
+        /// showLogInWindow();
+        //showSettingsWindow();
         //showRegistrationWindow();
        // primaryStage.setFullScreen(true);
+        showCandidateSelectionScreen();
     }
 
 
@@ -105,6 +107,24 @@ public class Main extends Application {
 
 
     }
+    public void showCandidateSelectionScreen() throws Exception{
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("CandidateSelectionUI.fxml"));
+            TabPane candidateSelectionWindow = (TabPane) loader.load();
+            rootLayout.setCenter(candidateSelectionWindow);
+
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
+
+    }
+
+
 
 
     public static void main(String[] args) {
