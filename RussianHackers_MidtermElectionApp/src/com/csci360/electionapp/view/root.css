@@ -25,3 +25,8 @@ CSS Created By Tyler Gray
 
 
 }
+
+.label{
+    -fx-text-fill: white;
+    -fx-font-family: calibri;
+}

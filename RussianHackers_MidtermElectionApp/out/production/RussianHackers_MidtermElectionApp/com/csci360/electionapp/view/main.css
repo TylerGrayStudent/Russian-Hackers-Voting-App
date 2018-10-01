@@ -44,3 +44,22 @@ CSS Created By Tyler Gray
 .label{
     -fx-font-family: "Calibri Light";
 }
+.titled-pane > .title{
+    -fx-background-color: #2196f3;
+    -fx-text-fill: white;
+}
+
+.titled-pane
+{
+    -fx-text-fill: white;
+}
+
+.titled-pane > .title > .arrow-button
+{
+}
+
+.titled-pane > .title > .arrow-button .arrow
+{
+    -fx-background-color: white;
+
+}
