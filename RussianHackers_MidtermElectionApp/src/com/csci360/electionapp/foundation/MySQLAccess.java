@@ -1,5 +1,7 @@
 package com.csci360.electionapp.foundation;
 
+import com.csci360.electionapp.tech.security.Security;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -36,7 +38,7 @@ public class MySQLAccess {
             // Result set get the result of the SQL query
             resultSet = statement
                     .executeQuery("select * from Test.users");
-            writeResultSet(resultSet);
+
 
         } catch (Exception e) {
             throw e;
@@ -47,17 +49,27 @@ public class MySQLAccess {
     }
 
     public boolean verifyLogIn(String userName, String passwordHash) throws Exception {
-        Connection connection = getConnection();
-        statement = connection.createStatement();
-        String sql = "select *  from users where username = '" + userName + "' and password = '" + passwordHash + "'";
-        resultSet = statement.executeQuery(sql);
-        //writeResultSet(resultSet);
-        System.out.println(userName + passwordHash);
-        if(resultSet.next()){
-            return true;
-        }
-        else {
+        try {
+            Connection connection = getConnection();
+            statement = connection.createStatement();
+            String sql = "select *  from users where username = '" + userName + "'";
+            resultSet = statement.executeQuery(sql);
+            if (resultSet.next()) {
+                //System.out.println(resultSet.getString("password"));
+                boolean passwordsMatch = Security.validatePassword(passwordHash, resultSet.getString("password"));
+                if (passwordsMatch) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
             return false;
+
+        } finally {
+            close();
         }
 
     }
@@ -82,23 +94,6 @@ public class MySQLAccess {
         }
     }
 
-    private void writeResultSet(ResultSet resultSet) throws SQLException {
-        // ResultSet is initially before the first data set
-        while (resultSet.next()) {
-            // It is possible to get the columns via name
-            // also possible to get the columns via the column number
-            // which starts at 1
-            // e.g. resultSet.getSTring(2);
-            String user = resultSet.getString("userID");
-            String website = resultSet.getString("userFirstName");
-            String summary = resultSet.getString("userLastName");
-            String password = resultSet.getString("userPassword");
-            System.out.println("User: " + user);
-            System.out.println("Website: " + website);
-            System.out.println("summary: " + summary);
-            System.out.println("Date: " + password);
-        }
-    }
 
     // You need to close the resultSet
     private void close() {
