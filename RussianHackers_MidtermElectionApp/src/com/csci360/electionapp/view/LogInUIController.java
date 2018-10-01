@@ -4,13 +4,11 @@ package com.csci360.electionapp.view;
 
 import com.gluonhq.charm.glisten.control.TextField;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 
-public class logInUIController {
+public class LogInUIController {
 
     private Main main;
 
@@ -33,7 +31,7 @@ public class logInUIController {
     @FXML
     private TextArea text;
 
-    public  logInUIController(){
+    public LogInUIController(){
 
     }
     @FXML
@@ -47,7 +45,7 @@ public class logInUIController {
 
     @FXML
     void registerclicked(MouseEvent event) throws Exception {
-        main.showRegistationWindow();;
+        main.showRegistrationWindow();;
     }
 
     @FXML

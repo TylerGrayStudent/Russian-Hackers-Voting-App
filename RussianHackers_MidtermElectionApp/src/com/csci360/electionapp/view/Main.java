@@ -7,8 +7,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-import com.gluonhq.charm.glisten.control.TextField;
-
 
 import java.io.IOException;
 
@@ -24,8 +22,9 @@ public class Main extends Application {
         this.primaryStage.setTitle("Election System");
 
         initRootLayout();
-        showLogInWindow();
-        //showRegistationWindow();
+     //   showLogInWindow();
+        showSettingsWindow();
+        //showRegistrationWindow();
        // primaryStage.setFullScreen(true);
     }
 
@@ -35,7 +34,7 @@ public class Main extends Application {
             // Load root layout from fxml file.
 
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("rootUI.fxml"));
+            loader.setLocation(Main.class.getResource("RootUI.fxml"));
             rootLayout = (BorderPane) loader.load();
 
             // Show the scene containing the root layout.
@@ -50,10 +49,10 @@ public class Main extends Application {
         }
     }
 
-    public void showRegistationWindow() throws Exception {
+    public void showRegistrationWindow() throws Exception {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("RegistrationUI.fxml"));
+            loader.setLocation(Main.class.getResource("NewVoterRegistrationUI.fxml"));
             AnchorPane registrationWindow = (AnchorPane) loader.load();
 
             rootLayout.setCenter(registrationWindow);
@@ -68,10 +67,36 @@ public class Main extends Application {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("LoginUI.fxml"));
+            //Accordion
             AnchorPane loginWindow = (AnchorPane) loader.load();
             rootLayout.setCenter(loginWindow);
-            logInUIController controller = loader.getController();
+            LogInUIController controller = loader.getController();
             controller.setMain(this);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
+
+    }
+
+    public void showSettingsWindow() throws Exception{
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("SettingsUI.fxml"));
+            BorderPane registrationWindow = (BorderPane) loader.load();
+            rootLayout.setCenter(registrationWindow);
+//            LogInUIController controller = loader.getController();
+ //           controller.setMain(this);
+
+            /*
+            Will be called from a controller. Just used to test for now
+             */
+            FXMLLoader load = new FXMLLoader();
+            load.setLocation(Main.class.getResource("ElectionResultsUI.fxml"));
+            AnchorPane electionResults = (AnchorPane) load.load();
+            registrationWindow.setCenter(electionResults);
 
         } catch (Exception e) {
             e.printStackTrace();
