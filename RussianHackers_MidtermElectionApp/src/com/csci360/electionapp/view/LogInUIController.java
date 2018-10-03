@@ -8,6 +8,7 @@ import com.gluonhq.charm.glisten.control.TextField;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 
@@ -26,7 +27,7 @@ public class LogInUIController {
     private TextField authentication;
 
     @FXML
-    private TextField password;
+    private PasswordField password;
 
     @FXML
     private Button registerButton;

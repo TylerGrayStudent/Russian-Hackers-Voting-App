@@ -1,5 +1,6 @@
 package com.csci360.electionapp.view;
 
+import com.csci360.electionapp.foundation.MySQLAccess;
 import com.csci360.electionapp.tech.security.Security;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -25,13 +26,8 @@ public class Main extends Application {
 
         initRootLayout();
          showLogInWindow();
-        //showSettingsWindow();
-        //showRegistrationWindow();
-       // primaryStage.setFullScreen(true);
-       // showCandidateSelectionScreen();
-        System.out.println(Security.generateStorngPasswordHash("g7yz8i8r"));
-        System.out.println(Security.generateStorngPasswordHash("hunter2"));
-
+        MySQLAccess db = new MySQLAccess();
+      //  db.verifyLogIn("thing" , "thing");
 
     }
 
@@ -47,7 +43,6 @@ public class Main extends Application {
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
-
             primaryStage.show();
 
 
