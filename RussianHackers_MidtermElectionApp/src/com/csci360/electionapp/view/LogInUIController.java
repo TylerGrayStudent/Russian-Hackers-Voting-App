@@ -51,6 +51,7 @@ public class LogInUIController {
             if(db.verifyLogIn(userName.getText(),password.getText()))
             {
                 System.out.println("Allowed User");
+                
             }
             else{
                 System.out.println("Denied User");

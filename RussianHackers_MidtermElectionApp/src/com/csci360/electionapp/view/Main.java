@@ -3,12 +3,18 @@ package com.csci360.electionapp.view;
 import com.csci360.electionapp.foundation.MySQLAccess;
 import com.csci360.electionapp.tech.security.Security;
 import javafx.application.Application;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Control;
 import javafx.scene.control.TabPane;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import jdk.jfr.EventType;
 
 
 import java.io.IOException;
@@ -74,6 +80,12 @@ public class Main extends Application {
             rootLayout.setCenter(loginWindow);
             LogInUIController controller = loader.getController();
             controller.setMain(this);
+           // MouseEvent me = new MouseEvent;
+            //MouseButton btn = new getButton(me);
+           //// controller.
+          //  if(controller.loginclicked(me))){
+          ///      showCandidateSelectionScreen();
+          //  }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -81,6 +93,12 @@ public class Main extends Application {
         }
 
 
+    }
+    private class MyEventHandler implements EventHandler<Event> {
+        @Override
+        public void handle(Event evt) {
+            System.out.println(((Control)evt.getSource()).getId());
+        }
     }
 
     public void showSettingsWindow() throws Exception{
