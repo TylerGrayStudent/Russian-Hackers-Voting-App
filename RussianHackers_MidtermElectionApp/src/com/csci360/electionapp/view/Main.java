@@ -2,6 +2,7 @@ package com.csci360.electionapp.view;
 
 import com.csci360.electionapp.tech.security.Security;
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
@@ -10,6 +11,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 
+import java.awt.event.MouseListener;
 import java.io.IOException;
 
 public class Main extends Application {
@@ -25,12 +27,8 @@ public class Main extends Application {
 
         initRootLayout();
          showLogInWindow();
-        //showSettingsWindow();
-        //showRegistrationWindow();
-       // primaryStage.setFullScreen(true);
-       // showCandidateSelectionScreen();
-        System.out.println(Security.generateStorngPasswordHash("g7yz8i8r"));
-        System.out.println(Security.generateStorngPasswordHash("hunter2"));
+
+
 
 
     }
@@ -47,7 +45,6 @@ public class Main extends Application {
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
-
             primaryStage.show();
 
 
@@ -70,7 +67,9 @@ public class Main extends Application {
         }
     }
 
-    public void showLogInWindow() throws Exception{
+    public void showLogInWindow() throws Exception
+
+    {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("LoginUI.fxml"));
@@ -80,6 +79,7 @@ public class Main extends Application {
             LogInUIController controller = loader.getController();
             controller.setMain(this);
 
+
         } catch (Exception e) {
             e.printStackTrace();
 
@@ -87,6 +87,7 @@ public class Main extends Application {
 
 
     }
+
 
     public void showSettingsWindow() throws Exception{
         try {

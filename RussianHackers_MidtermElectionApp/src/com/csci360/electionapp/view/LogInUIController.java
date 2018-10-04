@@ -6,10 +6,13 @@ import com.csci360.electionapp.foundation.MySQLAccess;
 import com.csci360.electionapp.tech.security.Security;
 import com.gluonhq.charm.glisten.control.TextField;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
@@ -50,6 +53,11 @@ public class LogInUIController {
             if(db.verifyLogIn(userName.getText(),password.getText()))
             {
                 System.out.println("Allowed User");
+                Scene scene = new Scene(FXMLLoader.load(getClass().getResource("CandidateSelectionUI.fxml")));
+                Node node = (Node)event.getSource();
+                Stage stage = (Stage) node.getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
             }
             else{
                 System.out.println("Denied User");
