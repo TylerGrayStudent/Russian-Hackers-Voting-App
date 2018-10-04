@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -29,7 +30,7 @@ public class LogInUIController {
     private TextField authentication;
 
     @FXML
-    private TextField password;
+    private PasswordField password;
 
     @FXML
     private Button registerButton;

@@ -10,9 +10,12 @@ CSS Created By Tyler Gray
 
 */
 
+#logintitle{
+    -fx-text-fill: black;
+}
 .root{
   -fx-background: #f4f4f4;
-  -fx-text-fill: -text-light;
+  /*-fx-text-fill: -text-light;*/
   -fx-prompt-text-fill: rgba(0,0,0,.3);
 
   -text-disabled: -text-disabled-light;
@@ -23,13 +26,19 @@ CSS Created By Tyler Gray
     -fx-background-color: -fx-text-box-border, -fx-background ;
     -fx-background-insets: 0, 0 0 1 0 ;
     -fx-background-radius: 0 ;
-    -fx-text-fill: #b2b2b2;
+    -fx-text-fill: black;
+   /* -fx-text-fill: #b2b2b2;*/
     -fx-font-family: 'Calibri';
 }
 .text-field:focused {
     -fx-background-color: -fx-focus-color, -fx-background ;
 
 }
+.password-field{
+    -fx-text-fill: black;
+    -fx-prompt-text-fill: black;
+    }
+
 
 
 .button{
