@@ -3,12 +3,9 @@ package com.csci360.electionapp.view;
 import com.csci360.electionapp.foundation.MySQLAccess;
 import com.csci360.electionapp.tech.security.Security;
 import javafx.application.Application;
-<<<<<<< HEAD
 import javafx.event.Event;
 import javafx.event.EventHandler;
-=======
 import javafx.fxml.FXML;
->>>>>>> 1f95eca4d11dcc4d7eb905b57041be969e7ed543
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Control;
@@ -37,14 +34,6 @@ public class Main extends Application {
 
         initRootLayout();
          showLogInWindow();
-<<<<<<< HEAD
-
-
-
-=======
-        MySQLAccess db = new MySQLAccess();
-      //  db.verifyLogIn("thing" , "thing");
->>>>>>> ed6d173b10b50cf25abab17cedc52b91156b6543
 
     }
 
