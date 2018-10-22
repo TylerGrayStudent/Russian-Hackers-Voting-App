@@ -59,11 +59,15 @@ public class LogInUIController {
             if(db.verifyLogIn(userName.getText(),password.getText()))
             {
                 System.out.println("Allowed User");
+<<<<<<< HEAD
+                
+=======
                 Scene scene = new Scene(FXMLLoader.load(getClass().getResource("CandidateSelectionUI.fxml")));
                 Node node = (Node)event.getSource();
                 Stage stage = (Stage) node.getScene().getWindow();
                 stage.setScene(scene);
                 stage.show();
+>>>>>>> 1f95eca4d11dcc4d7eb905b57041be969e7ed543
             }
             else{
                 System.out.println("Denied User");
