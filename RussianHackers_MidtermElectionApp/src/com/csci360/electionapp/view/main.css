@@ -72,3 +72,7 @@ CSS Created By Tyler Gray
     -fx-background-color: white;
 
 }
+
+#errormessage{
+    -fx-text-fill: red;
+}

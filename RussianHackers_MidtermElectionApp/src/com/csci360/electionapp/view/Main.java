@@ -28,14 +28,7 @@ public class Main extends Application {
 
         initRootLayout();
          showLogInWindow();
-<<<<<<< HEAD
 
-
-
-=======
-        MySQLAccess db = new MySQLAccess();
-      //  db.verifyLogIn("thing" , "thing");
->>>>>>> ed6d173b10b50cf25abab17cedc52b91156b6543
 
     }
 
