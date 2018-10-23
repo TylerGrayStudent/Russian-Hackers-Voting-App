@@ -35,6 +35,10 @@ public class Main extends Application {
         initRootLayout();
          showLogInWindow();
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8cf8b99006aafb1824e2ac3e96bbab0c3fea3c1a
     }
 
 

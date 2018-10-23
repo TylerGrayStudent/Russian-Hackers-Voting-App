@@ -73,6 +73,7 @@ CSS Created By Tyler Gray
 
 }
 
+<<<<<<< HEAD
 .tab-pane .tab-header-area .tab-header-background {
     -fx-opacity: 0;
 }
@@ -108,4 +109,24 @@ CSS Created By Tyler Gray
 .tab:selected .tab-label {
     -fx-alignment: CENTER;
     -fx-text-fill: white;
+=======
+#errormessage{
+    -fx-text-fill: red;
+}
+.dialog-pane {
+    -fx-background-color: black;
+}
+
+.dialog-pane .label {
+    -fx-text-fill: white;
+}
+
+.dialog-pane:header .header-panel {
+    -fx-background-color: black;
+}
+
+.dialog-pane:header .header-panel .label {
+    -fx-font-style: italic;
+    -fx-font-size: 2em;
+>>>>>>> 8cf8b99006aafb1824e2ac3e96bbab0c3fea3c1a
 }

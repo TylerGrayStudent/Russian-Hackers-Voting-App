@@ -9,10 +9,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.security.NoSuchAlgorithmException;
@@ -41,6 +43,9 @@ public class LogInUIController {
     @FXML
     private TextArea text;
 
+    @FXML
+    private Text errormessage;
+
     public LogInUIController(){
 
     }
@@ -60,10 +65,22 @@ public class LogInUIController {
                 Stage stage = (Stage) node.getScene().getWindow();
                 stage.setScene(scene);
                 stage.show();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8cf8b99006aafb1824e2ac3e96bbab0c3fea3c1a
             }
             else{
                 System.out.println("Denied User");
+                errormessage.setText("Invalid Username or Password. Please try again.");
+                password.clear();
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning Dialog");
+                alert.setHeaderText("Invalid Username or Password. Please try again or select Register if you are a new Voter.");
+
+                alert.showAndWait();
+
+
             }
         } catch (Exception e) {
             e.printStackTrace();
