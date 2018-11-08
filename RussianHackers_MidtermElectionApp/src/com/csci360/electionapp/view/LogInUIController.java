@@ -59,12 +59,16 @@ public class LogInUIController {
             if(db.verifyLogIn(userName.getText(),password.getText()))
             {
                 System.out.println("Allowed User");
-
+                main.showCandidateSelectionScreen();
+                /**
                 Scene scene = new Scene(FXMLLoader.load(getClass().getResource("CandidateSelectionUI.fxml")));
+
+
                 Node node = (Node)event.getSource();
                 Stage stage = (Stage) node.getScene().getWindow();
                 stage.setScene(scene);
                 stage.show();
+                 **/
             }
             else{
                 System.out.println("Denied User");
@@ -87,7 +91,12 @@ public class LogInUIController {
 
     @FXML
     void registerclicked(MouseEvent event) throws Exception {
-        main.showRegistrationWindow();;
+        main.showRegistrationWindow();
+    }
+
+    @FXML
+    void settingsClicked(MouseEvent event) throws Exception{
+        main.showSettingsWindow();
     }
 
     @FXML

@@ -35,7 +35,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="199.0" text="Submit" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                        <Button mnemonicParsing="false" onMouseClicked="#submitClicked" prefHeight="25.0" prefWidth="199.0" text="Submit" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
                         <RadioButton mnemonicParsing="false" text="President 1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
                         <ImageView fitHeight="66.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
                            <image>

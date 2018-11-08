@@ -33,7 +33,7 @@ public class Main extends Application {
         this.primaryStage.setTitle("Election System");
 
         initRootLayout();
-         showLogInWindow();
+        showLogInWindow();
 
 
     }
@@ -65,6 +65,8 @@ public class Main extends Application {
             AnchorPane registrationWindow = (AnchorPane) loader.load();
 
             rootLayout.setCenter(registrationWindow);
+            NewVoterRegistrationController controller = loader.getController();
+            controller.setMain(this);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -83,13 +85,22 @@ public class Main extends Application {
             rootLayout.setCenter(loginWindow);
             LogInUIController controller = loader.getController();
             controller.setMain(this);
-           // MouseEvent me = new MouseEvent;
-            //MouseButton btn = new getButton(me);
-           //// controller.
-          //  if(controller.loginclicked(me))){
-          ///      showCandidateSelectionScreen();
-          //  }
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void showBallotCastedScreen() throws Exception  {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("BallotCastedUI.fxml"));
+
+            AnchorPane window = (AnchorPane) loader.load();
+            rootLayout.setCenter(window);
+            BallotCastedController controller = loader.getController();
+            controller.setMain(this);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -98,13 +109,6 @@ public class Main extends Application {
 
 
     }
-    private class MyEventHandler implements EventHandler<Event> {
-        @Override
-        public void handle(Event evt) {
-            System.out.println(((Control)evt.getSource()).getId());
-        }
-    }
-
 
     public void showSettingsWindow() throws Exception{
         try {
@@ -120,6 +124,9 @@ public class Main extends Application {
             AnchorPane electionResults = (AnchorPane) load.load();
             registrationWindow.setCenter(electionResults);
 
+            SettingsController controller = loader.getController();
+            controller.setMain(this);
+
         } catch (Exception e) {
             e.printStackTrace();
 
@@ -127,12 +134,16 @@ public class Main extends Application {
 
 
     }
+
     public void showCandidateSelectionScreen() throws Exception{
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("CandidateSelectionUI.fxml"));
             TabPane candidateSelectionWindow = (TabPane) loader.load();
             rootLayout.setCenter(candidateSelectionWindow);
+
+            CandidateSelectionController controller = loader.getController();
+            controller.setMain(this);
 
 
 
