@@ -68,7 +68,14 @@ public class LogInUIController {
                 Stage stage = (Stage) node.getScene().getWindow();
                 stage.setScene(scene);
                 stage.show();
+<<<<<<< HEAD
                  **/
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 8cf8b99006aafb1824e2ac3e96bbab0c3fea3c1a
+>>>>>>> 4a74c761d60bd020ff3e979b670dcb008c48869c
             }
             else{
                 System.out.println("Denied User");

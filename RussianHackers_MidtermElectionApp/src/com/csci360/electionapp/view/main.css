@@ -73,6 +73,43 @@ CSS Created By Tyler Gray
 
 }
 
+<<<<<<< HEAD
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-opacity: 0;
+}
+
+.tab-pane
+{
+   /* -fx-tab-min-width:90px; */
+}
+
+.tab{
+    -fx-background-insets: 0 .2 0 .2,0,0;
+}
+.tab-pane .tab
+{
+    -fx-background-color: #2196f3;
+    -fx-border-radius: 0 0 0 0;
+    -fx-background-radius: 5 5 0 0;
+
+}
+
+.tab-pane .tab:selected
+{
+    -fx-background-color: #1e88e5;
+}
+
+.tab .tab-label {
+    -fx-alignment: CENTER;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.tab:selected .tab-label {
+    -fx-alignment: CENTER;
+    -fx-text-fill: white;
+=======
 #errormessage{
     -fx-text-fill: red;
 }
@@ -91,4 +128,5 @@ CSS Created By Tyler Gray
 .dialog-pane:header .header-panel .label {
     -fx-font-style: italic;
     -fx-font-size: 2em;
+>>>>>>> 8cf8b99006aafb1824e2ac3e96bbab0c3fea3c1a
 }

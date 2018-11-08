@@ -55,9 +55,11 @@ public class MySQLAccess {
             String sql = "select *  from users where username = '" + userName + "'";
             resultSet = statement.executeQuery(sql);
             if (resultSet.next()) {
-                //System.out.println(resultSet.getString("password"));
+
+                System.out.println(resultSet.getString("password"));
                 boolean passwordsMatch = Security.validatePassword(passwordHash, resultSet.getString("password"));
                 if (passwordsMatch) {
+                    //System.out.println("PASSWORDS MATCH");
                     return true;
                 } else {
                     return false;
@@ -66,6 +68,8 @@ public class MySQLAccess {
                 return false;
             }
         } catch (Exception e) {
+            //e.printStackTrace();
+            System.out.println("COULDNT CONNECT TO DB");
             return false;
 
         } finally {
@@ -79,6 +83,8 @@ public class MySQLAccess {
         return connect;
 
     }
+
+
 
 
 
