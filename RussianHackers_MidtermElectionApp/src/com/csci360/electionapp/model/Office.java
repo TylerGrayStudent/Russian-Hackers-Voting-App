@@ -8,12 +8,29 @@ public class Office {
 
     public Office(String name){
         this.nameOfOffice = name;
+        candidates = new ArrayList<String>();
     }
 
     public void addCandidate(String candidate){
+        if(contains(candidate)){
+            System.out.println("CANDIDATE ALREADY EXISTS");
+            return;
+        }
         candidates.add(candidate);
     }
 
+    public void removeCandidate(String candidate){
+        candidates.remove(candidate);
+    }
+
+    public boolean contains(String candidate){
+        for(String name: candidates){
+            if(name.equals(candidate)){
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 }

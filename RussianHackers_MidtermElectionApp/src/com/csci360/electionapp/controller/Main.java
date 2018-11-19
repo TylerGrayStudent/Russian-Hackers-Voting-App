@@ -1,5 +1,6 @@
 package com.csci360.electionapp.controller;
 
+import com.csci360.electionapp.model.Office;
 import com.csci360.electionapp.model.Voter;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +18,7 @@ public class Main extends Application {
     private Stage primaryStage;
     private BorderPane rootLayout;
     private Voter mainVoter;
+    private Office office;
 
 
     @Override
@@ -25,7 +27,8 @@ public class Main extends Application {
         this.primaryStage.setTitle("Election System");
 
         initRootLayout();
-        showLogInWindow();
+       // showLogInWindow();
+        showCandidateCreationScreen();
 
 
     }
@@ -37,6 +40,10 @@ public class Main extends Application {
     public Voter getMainVoter(){
         return mainVoter;
     }
+
+    public Office getOffice(){return office;}
+
+    public void setOffice(Office o){office = o;}
 
     public void initRootLayout() {
         try {
@@ -99,6 +106,23 @@ public class Main extends Application {
             AnchorPane window = (AnchorPane) loader.load();
             rootLayout.setCenter(window);
             BallotCastedController controller = loader.getController();
+            controller.setMain(this);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
+
+    }
+
+    public void showCandidateCreationScreen() throws Exception  {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("../view/CandidateCreationUI.fxml"));
+            AnchorPane window = (AnchorPane) loader.load();
+            rootLayout.setCenter(window);
+            CandidateCreationController controller = loader.getController();
             controller.setMain(this);
 
         } catch (Exception e) {
