@@ -57,15 +57,15 @@ public class LogInUIController {
         //String userAuthentication = authentication.getText();
         MySQLAccess db = new MySQLAccess();
         try {
-            if(db.verifyLogIn(userName.getText(),password.getText()))
+            String userNameText = userName.getText();
+            String passwordText = password.getText();
+            if(db.verifyLogIn(userNameText,passwordText))
             {
                 System.out.println("Allowed User");
+                String[] voterInfo = db.getUserInfo(userNameText);
+                Voter voter = new Voter(voterInfo[0],voterInfo[1]);
+                main.setMainVoter(voter);
                 main.showCandidateSelectionScreen();
-                //Temp Values.
-                //TODO : Write the SQL to get the unique userID from DB
-                String userID = "1234";
-                String name = "Bob";
-                Voter voter = new Voter(userID,name);
 
 
             }

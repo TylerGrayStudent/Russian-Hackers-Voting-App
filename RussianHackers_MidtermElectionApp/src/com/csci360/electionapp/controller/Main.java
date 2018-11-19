@@ -1,5 +1,6 @@
 package com.csci360.electionapp.controller;
 
+import com.csci360.electionapp.model.Voter;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -15,6 +16,7 @@ public class Main extends Application {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
+    private Voter mainVoter;
 
 
     @Override
@@ -28,6 +30,13 @@ public class Main extends Application {
 
     }
 
+    public void setMainVoter(Voter v){
+        mainVoter = v;
+    }
+
+    public Voter getMainVoter(){
+        return mainVoter;
+    }
 
     public void initRootLayout() {
         try {

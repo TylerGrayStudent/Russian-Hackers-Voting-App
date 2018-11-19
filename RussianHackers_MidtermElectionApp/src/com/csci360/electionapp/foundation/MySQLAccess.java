@@ -51,6 +51,30 @@ public class MySQLAccess {
 
     }
 
+    public String[] getUserInfo(String userName) throws Exception {
+        String[]userInfo = new String[2];
+        Connection dbConnection = getConnection();
+        String getUserIDSQL = "SELECT userID from users where username = ?";
+        PreparedStatement getUserIDStatement = dbConnection.prepareStatement(getUserIDSQL);
+        getUserIDStatement.setString(1,userName);
+
+        ResultSet userIDRS = getUserIDStatement.executeQuery();
+        userIDRS.next();
+        String userID = userIDRS.getString(1);
+
+        userInfo[0] = userID;
+
+        String getNameSQL = "SELECT firstName from voterInfo where userID = ?";
+        PreparedStatement getNameStatement = dbConnection.prepareStatement(getNameSQL);
+        getNameStatement.setString(1,userID);
+
+        ResultSet firstNameRDS = getNameStatement.executeQuery();
+        firstNameRDS.next();
+        String firstName = firstNameRDS.getString(1);
+        userInfo[1] = firstName;
+
+        return userInfo;
+    }
     public boolean verifyLogIn(String userName, String passwordHash) throws Exception {
         try {
             Connection connection = getConnection();
@@ -121,7 +145,7 @@ public class MySQLAccess {
         createVoterInfo.setString(6, voter.getSsn());
         createVoterInfo.setString(7, voter.getDlNumber());
         createVoterInfo.execute();
-        
+
 
         dbConnection.close();
 

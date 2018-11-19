@@ -1,4 +1,4 @@
 package com.csci360.electionapp.controller;
 
-public class ElectionCreationController {
+public class OfficeCreationController {
 }
