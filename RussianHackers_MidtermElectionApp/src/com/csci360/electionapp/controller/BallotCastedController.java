@@ -1,16 +1,21 @@
-package com.csci360.electionapp.view;
+package com.csci360.electionapp.controller;
 
 import javafx.fxml.FXML;
 
-public class SettingsController {
+public class BallotCastedController {
 
     private Main main;
 
+    @FXML
+    void initialize() {
+
+    }
 
     @FXML
-    void logout() throws Exception{
+    void logOut() throws Exception{
         main.showLogInWindow();
     }
+
     public void setMain(Main main){
         this.main = main;
     }

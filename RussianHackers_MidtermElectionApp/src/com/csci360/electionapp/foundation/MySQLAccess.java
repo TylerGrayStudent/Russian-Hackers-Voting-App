@@ -1,7 +1,10 @@
 package com.csci360.electionapp.foundation;
 
+import com.csci360.electionapp.model.NewVoter;
 import com.csci360.electionapp.tech.security.Security;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -84,6 +87,52 @@ public class MySQLAccess {
 
     }
 
+
+    public void addNewRegisteredVoter(NewVoter voter) throws Exception {
+        String passwordHashed = Security.generateStorngPasswordHash(voter.getPassword());
+        PreparedStatement createUserLogIn = null;
+        PreparedStatement getUserID = null;
+        PreparedStatement createVoterInfo = null;
+        Connection dbConnection = getConnection();
+
+        String createUserNameandPassword =
+                "INSERT INTO  users (username, password) VALUES (? , ?)";
+        createUserLogIn = dbConnection.prepareStatement(createUserNameandPassword);
+        createUserLogIn.setString(1,voter.getUserName());
+        createUserLogIn.setString(2,passwordHashed);
+        createUserLogIn.execute();
+
+        String getUserIDStatement = "SELECT userID from users where username = ?";
+        getUserID = dbConnection.prepareStatement(getUserIDStatement);
+        getUserID.setString(1,voter.getUserName());
+        ResultSet userIDRS = getUserID.executeQuery();
+        userIDRS.next();
+        String userID = userIDRS.getString(1);
+        System.out.println(userID);
+
+        String createVoterInfoStatement = "INSERT INTO  " + dbName + ".voterInfo " +
+                "(USERID, firstName, lastName, address, zipCode, ssn, dlnumber) VALUES (?,?,?,?,?,?,?)";
+        createVoterInfo = dbConnection.prepareStatement(createVoterInfoStatement);
+        createVoterInfo.setString(1, userID);
+        createVoterInfo.setString(2, voter.getFirstName());
+        createVoterInfo.setString(3, voter.getLastName());
+        createVoterInfo.setString(4, voter.getAddress());
+        createVoterInfo.setString(5, voter.getZipCode());
+        createVoterInfo.setString(6, voter.getSsn());
+        createVoterInfo.setString(7, voter.getDlNumber());
+        createVoterInfo.execute();
+        
+
+        dbConnection.close();
+
+
+
+
+
+
+
+
+    }
 
 
 

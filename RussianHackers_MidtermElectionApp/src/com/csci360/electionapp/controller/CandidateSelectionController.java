@@ -1,4 +1,4 @@
-package com.csci360.electionapp.view;
+package com.csci360.electionapp.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
@@ -20,5 +20,10 @@ public class CandidateSelectionController {
 
     public void setMain(Main main) {
         this.main = main;
+    }
+
+    @FXML
+    void nextButton(MouseEvent event) throws Exception{
+        main.nextTab();
     }
 }

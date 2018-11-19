@@ -1,8 +1,9 @@
-package com.csci360.electionapp.view;
+package com.csci360.electionapp.controller;
 
+import com.csci360.electionapp.foundation.MySQLAccess;
+import com.csci360.electionapp.model.NewVoter;
 import com.gluonhq.charm.glisten.control.TextField;
 
-import java.awt.event.MouseListener;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -62,7 +63,9 @@ public class NewVoterRegistrationController {
          *
          *
          */
-        System.out.println(username.getText() + firstname.getText() + lastname.getText() + password.getText() + address.getText() + zipcode.getText() + ssn.getText() + dlnumber.getText());
+        NewVoter nv = new NewVoter(username.getText(),firstname.getText(),lastname.getText(),password.getText(),address.getText(),zipcode.getText(),ssn.getText(),dlnumber.getText());
+        MySQLAccess db = new MySQLAccess();
+        db.addNewRegisteredVoter(nv);
         main.initRootLayout();
         main.showLogInWindow();
     }

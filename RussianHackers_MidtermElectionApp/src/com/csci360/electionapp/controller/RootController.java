@@ -1,4 +1,4 @@
-package com.csci360.electionapp.view;
+package com.csci360.electionapp.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

@@ -1,8 +1,9 @@
-package com.csci360.electionapp.view;
+package com.csci360.electionapp.controller;
 
 //import java.awt.*;
 
 import com.csci360.electionapp.foundation.MySQLAccess;
+import com.csci360.electionapp.model.Voter;
 import com.csci360.electionapp.tech.security.Security;
 import com.gluonhq.charm.glisten.control.TextField;
 import javafx.fxml.FXML;
@@ -60,15 +61,12 @@ public class LogInUIController {
             {
                 System.out.println("Allowed User");
                 main.showCandidateSelectionScreen();
-                /**
-                Scene scene = new Scene(FXMLLoader.load(getClass().getResource("CandidateSelectionUI.fxml")));
+                //Temp Values.
+                //TODO : Write the SQL to get the unique userID from DB
+                String userID = "1234";
+                String name = "Bob";
+                Voter voter = new Voter(userID,name);
 
-
-                Node node = (Node)event.getSource();
-                Stage stage = (Stage) node.getScene().getWindow();
-                stage.setScene(scene);
-                stage.show();
-                 **/
 
             }
             else{

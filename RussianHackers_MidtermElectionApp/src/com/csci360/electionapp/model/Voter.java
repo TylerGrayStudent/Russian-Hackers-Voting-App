@@ -2,12 +2,12 @@ package com.csci360.electionapp.model;
 
 public class Voter {
     private String name;
-    private String voterID;
+    private String userID;
     private boolean allowedToVote;
 
-    public Voter(String name, String voterID){
+    public Voter(String name, String userID){
         this.name = name;
-        this.voterID = voterID;
+        this.userID = userID;
         allowedToVote = true;
     }
 
@@ -21,6 +21,12 @@ public class Voter {
     public void unallowToVote(){
         allowedToVote = false;
     }
+
+    public boolean validateVoter(){
+        return true;
+    }
+
+
 
 
 

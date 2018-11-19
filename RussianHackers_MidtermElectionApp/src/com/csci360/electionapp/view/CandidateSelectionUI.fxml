@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<TabPane stylesheets="@main.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csci360.electionapp.view.CandidateSelectionController">
+<TabPane stylesheets="@main.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csci360.electionapp.controller.CandidateSelectionController">
    <tabs>
       <Tab closable="false" text="President">
          <content>
@@ -37,9 +37,7 @@
                     </rowConstraints>
                      <children>
 
-                        <Button mnemonicParsing="false" onMouseClicked="#submitClicked" prefHeight="25.0" prefWidth="199.0" text="Submit" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-
-                        <Button fx:id="presidentnextbtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="199.0" text="Next" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                        <Button fx:id="presidentnextbtn" mnemonicParsing="false" onMouseClicked="#nextButton" prefHeight="25.0" prefWidth="199.0" text="Next" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                            <GridPane.margin>
                               <Insets bottom="20.0" right="20.0" />
                            </GridPane.margin></Button>
@@ -124,7 +122,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="199.0" text="Next" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                        <Button mnemonicParsing="false" onMouseClicked="#nextButton" prefHeight="25.0" prefWidth="199.0" text="Next" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                            <GridPane.margin>
                               <Insets bottom="20.0" right="20.0" />
                            </GridPane.margin></Button>
@@ -209,7 +207,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="199.0" text="Submit" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                        <Button mnemonicParsing="false" onMouseClicked="#submitClicked" prefHeight="25.0" prefWidth="199.0" text="Submit" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                            <GridPane.margin>
                               <Insets bottom="20.0" right="20.0" />
                            </GridPane.margin>
