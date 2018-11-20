@@ -1,5 +1,6 @@
 package com.csci360.electionapp.controller;
 
+import com.csci360.electionapp.model.Election;
 import com.csci360.electionapp.model.Office;
 import com.csci360.electionapp.model.Voter;
 import javafx.application.Application;
@@ -19,19 +20,23 @@ public class Main extends Application {
     private BorderPane rootLayout;
     private Voter mainVoter;
     private Office office;
+    private Election election;
 
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Election System");
+        election = new Election();
 
         initRootLayout();
        // showLogInWindow();
-        showCandidateCreationScreen();
-
+        //showCandidateCreationScreen();
+            showOfficeCreationScreen(election);
 
     }
+
+    public Election getElection(){return election;}
 
     public void setMainVoter(Voter v){
         mainVoter = v;
@@ -116,7 +121,7 @@ public class Main extends Application {
 
     }
 
-    public void showCandidateCreationScreen() throws Exception  {
+    public void showCandidateCreationScreen(Office officeFromElection) throws Exception  {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("../view/CandidateCreationUI.fxml"));
@@ -124,6 +129,25 @@ public class Main extends Application {
             rootLayout.setCenter(window);
             CandidateCreationController controller = loader.getController();
             controller.setMain(this);
+            controller.getOfficeData(officeFromElection);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
+
+    }
+
+    public void showOfficeCreationScreen(Election election) throws Exception  {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("../view/OfficeCreationUI.fxml"));
+            AnchorPane window = (AnchorPane) loader.load();
+            rootLayout.setCenter(window);
+            OfficeCreationController controller = loader.getController();
+            controller.setMain(this);
+            controller.setElection(election);
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -6,11 +6,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 
 public class CandidateCreationController {
 
     private Main main;
     private Office office;
+
+    @FXML
+    private Text officeNameText;
 
     @FXML
     private ComboBox<String> candidateList;
@@ -31,12 +35,26 @@ public class CandidateCreationController {
     void createCandidateClicked(MouseEvent event) throws Exception{
         if(candidateName.getText() != null && !candidateName.getText().trim().isEmpty() && !office.contains(candidateName.getText())) {
             office.addCandidate(candidateName.getText());
-            candidateList.getItems().add(candidateName.getText());
-            System.out.println(candidateName.getText());
+            //candidateList.getItems().add(candidateName.getText());
+            //System.out.println(candidateName.getText());
             candidateName.setText("");
+            updateCandidateList();
         }
         else{
             candidateName.setText("");
+        }
+    }
+
+    @FXML
+    void okButtonPressed() throws Exception {
+        main.showOfficeCreationScreen(main.getElection());
+    }
+
+    void updateCandidateList(){
+        candidateList.getItems().clear();
+        for(String candidate: office.getCandidates()){
+
+            candidateList.getItems().add(candidate);
         }
     }
 
@@ -51,8 +69,13 @@ public class CandidateCreationController {
     }
     @FXML
     void initialize() {
-        //TODO: Need to change to get the office from the Election
-        office = new Office("Temp");
+
+    }
+
+    void getOfficeData(Office o){
+        office = o;
+        officeNameText.setText("Office: " + office.getNameOfOffice());
+        updateCandidateList();
     }
 
     public void setMain(Main main){
