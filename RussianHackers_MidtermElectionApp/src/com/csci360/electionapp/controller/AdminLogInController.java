@@ -49,7 +49,7 @@ public class AdminLogInController {
     @FXML
     void loginclicked(MouseEvent event) throws InvalidKeySpecException, NoSuchAlgorithmException {
         //String userUserName = userName.getText().toLowerCase();
-        String userPasswordHashed = Security.generateStorngPasswordHash(password.getText());
+        //String userPasswordHashed = Security.generateStorngPasswordHash(password.getText());
         MySQLAccess db = new MySQLAccess();
         try {
             String userNameText = userName.getText();

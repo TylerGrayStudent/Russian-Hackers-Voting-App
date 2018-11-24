@@ -81,6 +81,11 @@ public class OfficeCreationController {
     }
 
     @FXML
+    void okClicked(MouseEvent event) throws Exception {
+        main.showElectionCreatorWindow();
+    }
+
+    @FXML
     void editOfficeClicked() throws Exception {
         String officeName = officeList.getValue();
         Office o = election.getOfficeByName(officeName);

@@ -14,7 +14,7 @@ public class JUnitTests {
     @BeforeEach
     public void setUp() throws Exception {
         v = new Voter("Tyler", "1");
-        e = new Election();
+        e = new Election("Thing");
     }
 
     @Test

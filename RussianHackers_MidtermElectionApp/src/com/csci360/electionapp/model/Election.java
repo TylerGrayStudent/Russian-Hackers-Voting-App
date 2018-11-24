@@ -6,7 +6,8 @@ public class Election {
     public String nameOfElection; public String getNameOfElection(){return nameOfElection;};
     public ArrayList<Office> offices; public ArrayList<Office> getOffices(){return offices;}
 
-    public Election(){
+    public Election(String name){
+        nameOfElection = name;
         offices = new ArrayList<Office>();
     }
 
@@ -67,6 +68,10 @@ public class Election {
             }
         }
         return false;
+    }
+
+    public void endElectin(){
+        return;
     }
 
 }

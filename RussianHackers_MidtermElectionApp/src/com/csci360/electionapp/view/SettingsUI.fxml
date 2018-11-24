@@ -10,7 +10,7 @@
    <left>
       <Accordion prefHeight="400.0" prefWidth="140.0" stylesheets="@main.css" BorderPane.alignment="CENTER">
         <panes>
-          <TitledPane animated="false" text="Election Results">
+          <TitledPane animated="false" onMouseClicked="#electionCreatorClicked" text="Election Creator">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
             </content>

@@ -35,7 +35,7 @@
             <Button fx:id="createNewOfficeButton" mnemonicParsing="false" onMouseClicked="#addNewOfficeClicked" text="Create New Office" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Election Office Menu" wrappingWidth="113.080078125" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Office Creation Menu" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button fx:id="okButton" mnemonicParsing="false" text="OK" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+            <Button fx:id="okButton" mnemonicParsing="false" onMouseClicked="#okClicked" text="OK" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
             <Button fx:id="deleteOfficeButton" mnemonicParsing="false" onMouseClicked="#deleteOfficeClicked" text="Delete Office" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets right="10.0" />

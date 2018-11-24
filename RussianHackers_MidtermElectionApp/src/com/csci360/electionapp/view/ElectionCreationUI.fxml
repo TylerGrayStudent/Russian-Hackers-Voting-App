@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csci360.electionapp.controller.ElectionCreationController">
    <children>
       <GridPane prefHeight="400.0" prefWidth="600.0" stylesheets="@main.css">
@@ -24,11 +23,12 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="There is currently an election running." GridPane.columnIndex="1" />
-            <Button mnemonicParsing="false" text="Create Election" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <TextField promptText="Name of Election" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" text="Cancel" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-            <Button mnemonicParsing="false" text="End Election" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <Text fx:id="electionStatus" strokeType="OUTSIDE" strokeWidth="0.0" text="There is currently an election running." GridPane.columnIndex="1" />
+            <Button fx:id="createElectionButtonClicked" mnemonicParsing="false" onMouseClicked="#createElectionClicked" text="Create Election" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <TextField fx:id="nameOfElection" promptText="Name of Election" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="cancelButton" mnemonicParsing="false" onMouseClicked="#cancelClicked" text="Cancel" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <Button fx:id="endElectionButton" mnemonicParsing="false" onMouseClicked="#endElectionClicked" text="End Election" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <Button fx:id="editElectionButton" mnemonicParsing="false" onMouseClicked="#editElectionClicked" text="Edit Election" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
    </children>

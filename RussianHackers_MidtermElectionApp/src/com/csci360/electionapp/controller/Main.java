@@ -28,17 +28,21 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Election System");
-        election = new Election();
+        //election = new Election();
 
         initRootLayout();
         showLogInWindow();
-        System.out.println(Security.generateStorngPasswordHash("admin"));
+        //System.out.println(Security.generateStorngPasswordHash("admin"));
         //showCandidateCreationScreen();
             //showOfficeCreationScreen(election);
 
     }
 
     public Election getElection(){return election;}
+
+    public void setElection(Election elec){
+        this.election = elec;
+    }
 
     public void setMainVoter(Voter v){
         mainVoter = v;
@@ -182,9 +186,6 @@ public class Main extends Application {
             loader.setLocation(Main.class.getResource("../view/SettingsUI.fxml"));
             BorderPane registrationWindow = (BorderPane) loader.load();
             rootLayout.setCenter(registrationWindow);
-            /*
-            Will be called from a controller. Just used to test for now
-             */
             FXMLLoader load = new FXMLLoader();
             load.setLocation(Main.class.getResource("../view/ElectionResultsUI.fxml"));
             AnchorPane electionResults = (AnchorPane) load.load();
@@ -200,6 +201,36 @@ public class Main extends Application {
 
 
     }
+
+    public void showElectionCreatorWindow() throws Exception{
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("../view/SettingsUI.fxml"));
+            BorderPane registrationWindow = (BorderPane) loader.load();
+            rootLayout.setCenter(registrationWindow);
+
+            FXMLLoader load = new FXMLLoader();
+            load.setLocation(Main.class.getResource("../view/ElectionCreationUI.fxml"));
+            AnchorPane electionCreation = (AnchorPane) load.load();
+            registrationWindow.setCenter(electionCreation);
+
+            SettingsController controller = loader.getController();
+            ElectionCreationController eController = load.getController();
+
+            controller.setMain(this);
+            eController.setMain(this);
+
+            eController.updateText();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
+
+    }
+
+
 
     public void showCandidateSelectionScreen() throws Exception{
         try {
