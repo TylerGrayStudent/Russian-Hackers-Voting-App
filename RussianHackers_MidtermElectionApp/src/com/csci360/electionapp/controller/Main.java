@@ -28,13 +28,27 @@ public class Main extends Application {
 
      */
 
+    public void createTempElection(){
+        election = new Election("Temp");
+        election.addOffice(new Office("Temp"));
+        office = election.getOfficeByName("Temp");
+        office.addCandidate("Tyler");
+        office.addCandidate("Tyler2");
+        office.addCandidate("Tyler3");
+        office.addCandidate("Tyler4");
+        office.addCandidate("Tyler5");
+        office.addCandidate("Tyler6");
+        office.addCandidate("Tyler7");
+        office.addCandidate("Tyler8");
+
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Election System");
         //election = new Election();
-
+        createTempElection();
         initRootLayout();
         showLogInWindow();
         //System.out.println(Security.generateStorngPasswordHash("admin"));
@@ -246,6 +260,7 @@ public class Main extends Application {
 
             CandidateSelectionController controller = loader.getController();
             controller.setMain(this);
+            controller.setTab(candidateSelectionWindow);
 
 
 
@@ -258,6 +273,7 @@ public class Main extends Application {
     }
 
     public void nextTab() throws Exception{
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("../view/CandidateSelectionUI.fxml"));
         TabPane candidateSelectionWindow = (TabPane) loader.load();
