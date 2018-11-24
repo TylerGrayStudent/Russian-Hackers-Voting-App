@@ -23,7 +23,7 @@ public class Main extends Application {
     private Office office;
     private Election election;
 
-    /*TODO: Dynamically Generate the Candiadte Screen. Allow the user to tab through the tabs. Create way to store votes. Create Unoffical Tally. Create Official Tally. 
+    /*TODO: Dynamically Generate the Candiadte Screen. Allow the user to tab through the tabs. Create way to store votes. Create Unoffical Tally. Create Official Tally.
 
 
      */

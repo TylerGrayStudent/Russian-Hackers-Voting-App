@@ -28,7 +28,7 @@ public class MySQLAccess {
     public MySQLAccess(){
 
     }
-    public void readDataBase() throws Exception {
+   /* public void readDataBase() throws Exception {
         try {
 
             // Setup the connection with the DB
@@ -49,7 +49,7 @@ public class MySQLAccess {
             close();
         }
 
-    }
+    }*/
 
     public String[] getUserInfo(String userName) throws Exception {
         String[]userInfo = new String[2];
@@ -75,12 +75,20 @@ public class MySQLAccess {
 
         return userInfo;
     }
+
+    public void publishElection(){
+
+    }
+
+
     public boolean verifyLogIn(String userName, String passwordHash) throws Exception {
         try {
             Connection connection = getConnection();
-            statement = connection.createStatement();
-            String sql = "select *  from users where username = '" + userName + "'";
-            resultSet = statement.executeQuery(sql);
+            PreparedStatement logIn = null;
+            String sql = "select *  from users where username = ?";
+            logIn = connection.prepareStatement(sql);
+            logIn.setString(1,userName);
+            resultSet = logIn.executeQuery();
             if (resultSet.next()) {
 
                 System.out.println(resultSet.getString("password"));
@@ -108,9 +116,11 @@ public class MySQLAccess {
     public boolean verifyAdminLogIn(String userName, String passwordHash) throws Exception {
         try {
             Connection connection = getConnection();
-            statement = connection.createStatement();
-            String sql = "select *  from admin where username = '" + userName + "'";
-            resultSet = statement.executeQuery(sql);
+            PreparedStatement logIn = null;
+            String sql = "select *  from admin where username = ?";
+            logIn = connection.prepareStatement(sql);
+            logIn.setString(1,userName);
+            resultSet = logIn.executeQuery();
             if (resultSet.next()) {
 
                 System.out.println(resultSet.getString("password"));
@@ -216,7 +226,6 @@ public class MySQLAccess {
     }
 
     public static void main(String[] args) throws Exception {
-        MySQLAccess dao = new MySQLAccess();
-        dao.readDataBase();
+
     }
 }

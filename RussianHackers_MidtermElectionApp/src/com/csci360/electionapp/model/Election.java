@@ -3,12 +3,15 @@ package com.csci360.electionapp.model;
 import java.util.ArrayList;
 
 public class Election {
-    public String nameOfElection; public String getNameOfElection(){return nameOfElection;};
-    public ArrayList<Office> offices; public ArrayList<Office> getOffices(){return offices;}
+    private String nameOfElection; public String getNameOfElection(){return nameOfElection;};
+    private ArrayList<Office> offices; public ArrayList<Office> getOffices(){return offices;}
+    private boolean active;
+
 
     public Election(String name){
         nameOfElection = name;
         offices = new ArrayList<Office>();
+        active = false;
     }
 
     public void addOffice(Office o){
@@ -58,7 +61,7 @@ public class Election {
     }
 
     public void publishElection(){
-        return;
+        active = true;
     }
 
     public boolean containsNameOf(String officeName){
@@ -71,7 +74,7 @@ public class Election {
     }
 
     public void endElectin(){
-        return;
+        active = false;
     }
 
 }
