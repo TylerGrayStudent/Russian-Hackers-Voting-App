@@ -105,6 +105,35 @@ public class MySQLAccess {
 
     }
 
+    public boolean verifyAdminLogIn(String userName, String passwordHash) throws Exception {
+        try {
+            Connection connection = getConnection();
+            statement = connection.createStatement();
+            String sql = "select *  from admin where username = '" + userName + "'";
+            resultSet = statement.executeQuery(sql);
+            if (resultSet.next()) {
+
+                System.out.println(resultSet.getString("password"));
+                boolean passwordsMatch = Security.validatePassword(passwordHash, resultSet.getString("password"));
+                if (passwordsMatch) {
+                         return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            //e.printStackTrace();
+            System.out.println("COULDNT CONNECT TO DB");
+            return false;
+
+        } finally {
+            close();
+        }
+
+    }
+
     private Connection getConnection() throws Exception{
         connect = DriverManager.getConnection(connectionString);
         return connect;
@@ -148,13 +177,6 @@ public class MySQLAccess {
 
 
         dbConnection.close();
-
-
-
-
-
-
-
 
     }
 

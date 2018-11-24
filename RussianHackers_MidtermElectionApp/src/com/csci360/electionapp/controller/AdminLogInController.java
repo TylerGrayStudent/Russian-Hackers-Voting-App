@@ -7,21 +7,17 @@ import com.csci360.electionapp.model.Voter;
 import com.csci360.electionapp.tech.security.Security;
 import com.gluonhq.charm.glisten.control.TextField;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
-public class LogInUIController {
+public class AdminLogInController {
 
     private Main main;
 
@@ -47,25 +43,21 @@ public class LogInUIController {
     @FXML
     private Text errormessage;
 
-    public LogInUIController(){
+    public AdminLogInController(){
 
     }
     @FXML
     void loginclicked(MouseEvent event) throws InvalidKeySpecException, NoSuchAlgorithmException {
         //String userUserName = userName.getText().toLowerCase();
-        //String userPasswordHashed = Security.generateStorngPasswordHash(password.getText());
-        //String userAuthentication = authentication.getText();
+        String userPasswordHashed = Security.generateStorngPasswordHash(password.getText());
         MySQLAccess db = new MySQLAccess();
         try {
             String userNameText = userName.getText();
             String passwordText = password.getText();
-            if(db.verifyLogIn(userNameText,passwordText))
+            if(db.verifyAdminLogIn(userNameText,passwordText))
             {
-                System.out.println("Allowed User");
-                String[] voterInfo = db.getUserInfo(userNameText);
-                Voter voter = new Voter(voterInfo[0],voterInfo[1]);
-                main.setMainVoter(voter);
-                main.showCandidateSelectionScreen();
+                System.out.println("Allowed Admin");
+                main.showSettingsWindow();
 
 
             }
@@ -94,9 +86,8 @@ public class LogInUIController {
     }
 
     @FXML
-    void adminClicked(MouseEvent event) throws Exception{
-        main.showAdminLogInWindow();
-        //main.showSettingsWindow();
+    void settingsClicked(MouseEvent event) throws Exception{
+        main.showSettingsWindow();
     }
 
     @FXML

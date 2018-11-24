@@ -3,6 +3,7 @@ package com.csci360.electionapp.controller;
 import com.csci360.electionapp.model.Election;
 import com.csci360.electionapp.model.Office;
 import com.csci360.electionapp.model.Voter;
+import com.csci360.electionapp.tech.security.Security;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -30,9 +31,10 @@ public class Main extends Application {
         election = new Election();
 
         initRootLayout();
-       // showLogInWindow();
+        showLogInWindow();
+        System.out.println(Security.generateStorngPasswordHash("admin"));
         //showCandidateCreationScreen();
-            showOfficeCreationScreen(election);
+            //showOfficeCreationScreen(election);
 
     }
 
@@ -95,6 +97,23 @@ public class Main extends Application {
             AnchorPane loginWindow = (AnchorPane) loader.load();
             rootLayout.setCenter(loginWindow);
             LogInUIController controller = loader.getController();
+            controller.setMain(this);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void showAdminLogInWindow() throws Exception
+
+    {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("../view/AdminLogIn.fxml"));
+            AnchorPane loginWindow = (AnchorPane) loader.load();
+            rootLayout.setCenter(loginWindow);
+            AdminLogInController controller = loader.getController();
             controller.setMain(this);
 
         } catch (Exception e) {
