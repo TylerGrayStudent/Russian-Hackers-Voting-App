@@ -9,7 +9,7 @@ public class Ballot {
 
     public Ballot(Voter voter){
         this.voter = voter;
-        votes.clear();
+
 
     }
 
@@ -27,8 +27,8 @@ public class Ballot {
         return votes;
     }
 
-    public void addVote(){
-
+    public void addVote(Vote v){
+        votes.add(v);
     }
 
 

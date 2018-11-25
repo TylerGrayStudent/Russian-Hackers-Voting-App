@@ -9,5 +9,9 @@ public class Vote {
         this.office = office;
     }
 
+    public String toString(){
+        return "Office: " + office + " | Candidate:  " + candidate;
+    }
+
 
 }

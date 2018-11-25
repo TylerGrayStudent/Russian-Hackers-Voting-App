@@ -1,5 +1,6 @@
 package com.csci360.electionapp.controller;
 
+import com.csci360.electionapp.model.Ballot;
 import com.csci360.electionapp.model.Election;
 import com.csci360.electionapp.model.Office;
 import com.csci360.electionapp.model.Voter;
@@ -22,6 +23,7 @@ public class Main extends Application {
     private Voter mainVoter;
     private Office office;
     private Election election;
+    private Ballot ballot;
 
     /*TODO: Dynamically Generate the Candiadte Screen. Allow the user to tab through the tabs. Create way to store votes. Create Unoffical Tally. Create Official Tally.
 
@@ -41,6 +43,18 @@ public class Main extends Application {
         office.addCandidate("Tyler7");
         office.addCandidate("Tyler8");
 
+        Office office2 = new Office("Temp 3");
+        office2.addCandidate("Tyler");
+        office2.addCandidate("Tyler2");
+        office2.addCandidate("Tyler3");
+        office2.addCandidate("Tyler4");
+        office2.addCandidate("Tyler5");
+        office2.addCandidate("Tyler6");
+        office2.addCandidate("Tyler7");
+        office2.addCandidate("Tyler8");
+
+        election.addOffice(office2);
+
     }
 
     @Override
@@ -57,6 +71,12 @@ public class Main extends Application {
 
     }
 
+    public Ballot getBallot(){
+        return ballot;
+    }
+    public void setBallot(Ballot ballot){
+        this.ballot = ballot;
+    }
     public Election getElection(){return election;}
 
     public void setElection(Election elec){
