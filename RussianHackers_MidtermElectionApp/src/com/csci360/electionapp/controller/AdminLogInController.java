@@ -3,8 +3,6 @@ package com.csci360.electionapp.controller;
 //import java.awt.*;
 
 import com.csci360.electionapp.foundation.MySQLAccess;
-import com.csci360.electionapp.model.Voter;
-import com.csci360.electionapp.tech.security.Security;
 import com.gluonhq.charm.glisten.control.TextField;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

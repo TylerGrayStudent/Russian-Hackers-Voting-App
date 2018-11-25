@@ -3,8 +3,6 @@ package com.csci360.electionapp.controller;
 import com.csci360.electionapp.model.Ballot;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
-
-import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 
 public class BallotCastedController {
@@ -64,6 +62,9 @@ public class BallotCastedController {
     private Text textCandidate4;
 
     @FXML
+    private Text voteResultsText;
+
+    @FXML
     void initialize(Ballot ballot) {
 
         this.ballot=ballot;
@@ -94,6 +95,9 @@ public class BallotCastedController {
             candidates.get(i).setText(ballot.getVotes().get(i).getCandidate());
 
         }
+
+        voteResultsText.setText("Vote Result for " + ballot.getVoter().getName());
+
 
 
 

@@ -15,7 +15,7 @@
    <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vote Results" BorderPane.alignment="CENTER">
+            <Text fx:id="voteResultsText" strokeType="OUTSIDE" strokeWidth="0.0" text="Vote Results" BorderPane.alignment="CENTER">
                <font>
                   <Font size="29.0" />
                </font>
@@ -86,7 +86,7 @@
             </SplitPane>
          </center>
          <bottom>
-            <Button mnemonicParsing="false" onMouseClicked="#logOut" text="Log Out" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" onMouseClicked="#logOut" prefHeight="27.0" prefWidth="141.0" text="Log Out" BorderPane.alignment="CENTER">
                <opaqueInsets>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </opaqueInsets>

@@ -32,6 +32,8 @@ public class Ballot {
         votes.add(v);
     }
 
+    public Voter getVoter(){ return voter; }
+
 
 
 }

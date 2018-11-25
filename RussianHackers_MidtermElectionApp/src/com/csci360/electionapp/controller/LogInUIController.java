@@ -1,22 +1,16 @@
 package com.csci360.electionapp.controller;
 
-//import java.awt.*;
 
 import com.csci360.electionapp.foundation.MySQLAccess;
 import com.csci360.electionapp.model.Voter;
-import com.csci360.electionapp.tech.security.Security;
 import com.gluonhq.charm.glisten.control.TextField;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
@@ -63,7 +57,7 @@ public class LogInUIController {
             {
                 System.out.println("Allowed User");
                 String[] voterInfo = db.getUserInfo(userNameText);
-                Voter voter = new Voter(voterInfo[0],voterInfo[1]);
+                Voter voter = new Voter(voterInfo[1],voterInfo[0]);
                 main.setMainVoter(voter);
                 main.showCandidateSelectionScreen();
 

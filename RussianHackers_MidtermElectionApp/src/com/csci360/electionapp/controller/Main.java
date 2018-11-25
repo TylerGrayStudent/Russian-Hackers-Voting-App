@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Main extends Application {
 
@@ -24,13 +25,15 @@ public class Main extends Application {
     private Office office;
     private Election election;
     private Ballot ballot;
-
+    private ArrayList<Ballot> unofficalBallotBox = new ArrayList<Ballot>();
     /*TODO: Dynamically Generate the Candiadte Screen. Allow the user to tab through the tabs. Create way to store votes. Create Unoffical Tally. Create Official Tally.
 
 
      */
 
     public void createTempElection(){
+
+        //Here for quick testing instead of making new Elections every test.
         election = new Election("Temp");
         election.addOffice(new Office("Temp"));
         office = election.getOfficeByName("Temp");
@@ -71,6 +74,10 @@ public class Main extends Application {
 
     }
 
+
+    public void addToUnofficalBox(Ballot ballot){
+        unofficalBallotBox.add(ballot);
+    }
     public Ballot getBallot(){
         return ballot;
     }

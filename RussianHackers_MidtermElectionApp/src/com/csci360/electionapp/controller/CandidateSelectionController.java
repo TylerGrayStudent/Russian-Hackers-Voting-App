@@ -1,7 +1,6 @@
 package com.csci360.electionapp.controller;
 
 import com.csci360.electionapp.model.Ballot;
-import com.csci360.electionapp.model.Election;
 import com.csci360.electionapp.model.Office;
 import com.csci360.electionapp.model.Voter;
 import javafx.beans.value.ChangeListener;
@@ -10,14 +9,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-
-import javax.swing.*;
 import java.io.IOException;
 import java.util.ArrayList;
 

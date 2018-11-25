@@ -34,6 +34,20 @@ public class ElectionCreationController {
     }
 
     @FXML
+    void importClicked(MouseEvent event) throws Exception {
+        //main.showSettingsWindow();
+
+
+    }
+
+    @FXML
+    void exportClicked(MouseEvent event) throws Exception {
+       // main.showSettingsWindow();
+    }
+
+
+
+    @FXML
     void initialize() {
         try{
             updateText();
@@ -48,6 +62,9 @@ public class ElectionCreationController {
 
     @FXML
     void createElectionClicked(MouseEvent event) {
+    if(main.getElection()!=null){
+        return;
+    }
         election = new Election(nameOfElection.getText());
         main.setElection(election);
         nameOfElection.clear();

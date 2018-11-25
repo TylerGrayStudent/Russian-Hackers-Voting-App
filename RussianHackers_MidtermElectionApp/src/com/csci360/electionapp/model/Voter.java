@@ -26,6 +26,8 @@ public class Voter {
         return true;
     }
 
+    public String getName(){ return name; }
+
 
 
 
