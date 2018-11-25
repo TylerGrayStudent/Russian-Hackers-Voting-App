@@ -8,6 +8,8 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.HPos;
+import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
@@ -26,6 +28,7 @@ public class CandidateSelectionController {
     private ToggleGroup tg;
     private CandidatesEmptyController emptyController;
     private ArrayList<CandidatesEmptyController> emptyControllersList = new ArrayList<CandidatesEmptyController>();
+    private CandidateOverviewController controller;
 
     @FXML
     private Label currentlySelectedName;
@@ -33,7 +36,7 @@ public class CandidateSelectionController {
     @FXML
     void submitClicked(MouseEvent event) throws Exception {
         main.initRootLayout();
-        main.showBallotCastedScreen();
+        //main.showBallotCastedScreen();
     }
 
     @FXML
@@ -42,8 +45,9 @@ public class CandidateSelectionController {
         if(isSelected){
             //System.out.println(rb.getText());
             //currentlySelectedName.setText(rb.getText());
-            CandidatesEmptyController controller = emptyControllersList.get(tab.getSelectionModel().getSelectedIndex());
-            controller.updateCurrentlySelectedName(rb.getText());
+            CandidatesEmptyController selectioncontroller = emptyControllersList.get(tab.getSelectionModel().getSelectedIndex());
+            selectioncontroller.updateCurrentlySelectedName(rb.getText());
+            controller.updateCandidate(tab.getSelectionModel().getSelectedIndex(),rb.getText());
 
         }
 
@@ -76,6 +80,7 @@ public class CandidateSelectionController {
             emptyController = loader.getController();
             emptyController.setTab(tab);
             emptyControllersList.add(emptyController);
+            emptyController.updatePictureCount(o.getCandidates().size());
             tg = new ToggleGroup();
             int col = 0;
             int row = 1;
@@ -92,6 +97,8 @@ public class CandidateSelectionController {
                     }
                 });
                 candidates.add(rb,col,row);
+                candidates.setValignment(rb, VPos.TOP);
+                candidates.setHalignment(rb, HPos.CENTER);
                 System.out.println(col + " , " + row);
                 i++;
                 col = i%4;
@@ -109,8 +116,11 @@ public class CandidateSelectionController {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("../view/CandidateOverviewUI.fxml"));
         GridPane overview = (GridPane) loader.load();
-        CandidateOverviewController controller = loader.getController();
+        controller = loader.getController();
         controller.setMain(main);
+        controller.setElection(main.getElection());
+        controller.setVoter(main.getMainVoter());
+        controller.updatePictureCount(main.getElection().getOffices().size());
         Tab t = new Tab("Overview");
         t.setContent(overview);
         tab.getTabs().add(t);

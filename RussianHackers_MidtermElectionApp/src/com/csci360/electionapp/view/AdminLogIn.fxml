@@ -58,6 +58,7 @@
                   <Font size="14.0" />
                </font>
             </Text>
+            <Button fx:id="cancelButton" mnemonicParsing="false" onMouseClicked="#cancelClicked" text="Return To Main Menu" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
    </children>

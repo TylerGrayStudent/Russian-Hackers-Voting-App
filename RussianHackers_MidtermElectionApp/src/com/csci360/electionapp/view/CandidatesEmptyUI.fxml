@@ -30,43 +30,43 @@
             <Insets bottom="20.0" right="20.0" />
          </GridPane.margin>
       </Button>
-      <ImageView fitHeight="66.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
+      <ImageView fx:id="img1" fitHeight="66.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
          <image>
             <Image url="@../resources/img/tombrady.png" />
          </image>
       </ImageView>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Currently Selected:" GridPane.rowIndex="5" />
-      <ImageView fitHeight="66.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+      <ImageView fx:id="img5" fitHeight="66.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2">
          <image>
             <Image url="@../resources/img/tombrady.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="66.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+      <ImageView fx:id="img2" fitHeight="66.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER">
          <image>
             <Image url="@../resources/img/tombrady.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="66.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+      <ImageView fx:id="img6" fitHeight="66.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
          <image>
             <Image url="@../resources/img/tombrady.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="66.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+      <ImageView fx:id="img3" fitHeight="66.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER">
          <image>
             <Image url="@../resources/img/tombrady.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="66.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER">
+      <ImageView fx:id="img4" fitHeight="66.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER">
          <image>
             <Image url="@../resources/img/tombrady.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="66.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+      <ImageView fx:id="img7" fitHeight="66.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
          <image>
             <Image url="@../resources/img/tombrady.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="66.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+      <ImageView fx:id="img8" fitHeight="66.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2">
          <image>
             <Image url="@../resources/img/tombrady.png" />
          </image>

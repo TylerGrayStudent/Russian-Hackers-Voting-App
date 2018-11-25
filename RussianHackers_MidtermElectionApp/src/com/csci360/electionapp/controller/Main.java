@@ -165,7 +165,7 @@ public class Main extends Application {
 
     }
 
-    public void showBallotCastedScreen() throws Exception  {
+    public void showBallotCastedScreen(Ballot ballot) throws Exception  {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("../view/BallotCastedUI.fxml"));
@@ -173,7 +173,11 @@ public class Main extends Application {
             AnchorPane window = (AnchorPane) loader.load();
             rootLayout.setCenter(window);
             BallotCastedController controller = loader.getController();
+            controller.initialize(ballot);
             controller.setMain(this);
+            //controller.setBallot(ballot);
+
+
 
         } catch (Exception e) {
             e.printStackTrace();

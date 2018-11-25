@@ -13,5 +13,13 @@ public class Vote {
         return "Office: " + office + " | Candidate:  " + candidate;
     }
 
+    public String getCandidate(){
+        return candidate;
+    }
+
+    public String getOffice(){
+        return office;
+    }
+
 
 }

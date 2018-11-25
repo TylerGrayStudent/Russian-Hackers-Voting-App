@@ -9,13 +9,14 @@ public class Ballot {
 
     public Ballot(Voter voter){
         this.voter = voter;
+        votes = new ArrayList<Vote>();
 
 
     }
 
-    public ArrayList<Vote> getBallots(){
-        return votes;
-    }
+   // public ArrayList<Vote> getBallots(){
+   //     return votes;
+    //}
 
     public void printBallot(){
         for(Vote v: votes){

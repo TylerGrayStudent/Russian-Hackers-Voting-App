@@ -46,6 +46,11 @@ public class AdminLogInController {
     public AdminLogInController(){
 
     }
+
+    @FXML
+    void cancelClicked() throws Exception {
+        main.showLogInWindow();
+    }
     @FXML
     void loginclicked(MouseEvent event) throws InvalidKeySpecException, NoSuchAlgorithmException {
         //String userUserName = userName.getText().toLowerCase();
