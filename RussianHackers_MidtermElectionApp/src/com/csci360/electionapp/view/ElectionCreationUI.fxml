@@ -24,13 +24,14 @@
         </rowConstraints>
          <children>
             <Text fx:id="electionStatus" strokeType="OUTSIDE" strokeWidth="0.0" text="There is currently an election running." GridPane.columnIndex="1" />
-            <Button fx:id="createElectionButtonClicked" mnemonicParsing="false" onMouseClicked="#createElectionClicked" text="Create Election" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <Button fx:id="createElectionButtonClicked" mnemonicParsing="false" onMouseClicked="#createElectionClicked" prefHeight="31.0" prefWidth="96.0" text="Create Election" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
             <TextField fx:id="nameOfElection" promptText="Name of Election" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Button fx:id="cancelButton" mnemonicParsing="false" onMouseClicked="#cancelClicked" text="Cancel" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-            <Button fx:id="endElectionButton" mnemonicParsing="false" onMouseClicked="#endElectionClicked" text="End Election" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <Button fx:id="endElectionButton" mnemonicParsing="false" onMouseClicked="#endElectionClicked" text="End Election" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
             <Button fx:id="editElectionButton" mnemonicParsing="false" onMouseClicked="#editElectionClicked" text="Edit Election" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
             <Button fx:id="exportButton" mnemonicParsing="false" onMouseClicked="#exportClicked" text="Export" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
             <Button fx:id="importButton" mnemonicParsing="false" onMouseClicked="#importClicked" text="Import" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+            <Button fx:id="publishButton" mnemonicParsing="false" onMouseClicked="#publishClicked" prefHeight="31.0" prefWidth="178.0" text="Publish Election" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
          </children>
       </GridPane>
    </children>

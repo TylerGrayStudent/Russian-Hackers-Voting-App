@@ -1,6 +1,6 @@
 package com.csci360.electionapp.foundation;
 
-import com.csci360.electionapp.model.NewVoter;
+import com.csci360.electionapp.model.*;
 import com.csci360.electionapp.tech.security.Security;
 
 import java.security.NoSuchAlgorithmException;
@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Collection;
 
 public class MySQLAccess {
 
@@ -76,7 +77,64 @@ public class MySQLAccess {
         return userInfo;
     }
 
-    public void publishElection(){
+    public void castVote(Ballot b) throws Exception {
+        PreparedStatement statement = null;
+        Connection connection = getConnection();
+
+
+
+        for(Vote v:b.getVotes()){
+            String sql = "UPDATE " + v.getOffice() + " SET  `vote_count` = `vote_count` + 1 WHERE candidate = \"" + v.getCandidate() + "\"";
+            System.out.println(sql);
+            statement = connection.prepareStatement(sql);
+            statement.executeUpdate();
+        }
+    }
+
+    public void publishElection(Election election) throws Exception {
+        Connection connection = getConnection();
+        PreparedStatement createDB = null;
+        PreparedStatement dropTable = null;
+        PreparedStatement statement = null;
+
+        //Drop Table if Exists
+        String dropTablesql = String.format("DROP TABLE IF EXISTS %s",election.getNameOfElection());
+        dropTable = connection.prepareStatement(dropTablesql);
+        dropTable.execute();
+
+        //create table
+        String sql = "CREATE TABLE `election_system`." + election.getNameOfElection() +
+                "  (`officeID` INT NOT NULL AUTO_INCREMENT,";
+
+        for(Office o:election.getOffices()){
+            sql = sql + o.getNameOfOffice() + "  VARCHAR(45) NOT NULL,";
+        }
+        sql = sql + "  PRIMARY KEY (`officeID`));";
+
+        createDB = connection.prepareStatement(sql);
+        createDB.execute();
+
+        //
+        for(Office o: election.getOffices()) {
+            dropTablesql = String.format("DROP TABLE IF EXISTS %s", o.getNameOfOffice());
+            dropTable = connection.prepareStatement(dropTablesql);
+            dropTable.execute();
+            sql = "CREATE TABLE " + o.getNameOfOffice() + "( `candidate` VARCHAR(45) NOT NULL, `vote_count` INT ,PRIMARY KEY (`candidate`));";
+        System.out.println(sql);
+            createDB = connection.prepareStatement(sql);
+            createDB.execute();
+        }
+
+        for(Office o: election.getOffices()){
+
+            for(String candidate: o.getCandidates()){
+                sql = "INSERT INTO " + o.getNameOfOffice() + " VALUES (\"" + candidate + "\" , 0);";
+                System.out.println(sql);
+                statement = connection.prepareStatement(sql);
+                statement.execute();
+            }
+
+        }
 
     }
 

@@ -80,6 +80,7 @@ public class CandidateOverviewController {
             ballot.addVote(v);
         }
         main.addToUnofficalBox(ballot);
+        ballot.castBallotToDB();
         main.showBallotCastedScreen(ballot);
 
     }

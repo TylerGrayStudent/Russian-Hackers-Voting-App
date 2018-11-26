@@ -14,6 +14,10 @@ public class Election {
         active = false;
     }
 
+    public boolean isActive(){
+        return active;
+    }
+
     public void addOffice(Office o){
         if(offices.contains(o)){
             return;

@@ -49,6 +49,13 @@ public class LogInUIController {
         //String userUserName = userName.getText().toLowerCase();
         //String userPasswordHashed = Security.generateStorngPasswordHash(password.getText());
         //String userAuthentication = authentication.getText();
+        if(!main.getElection().isActive()){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("NO ACTIVE ELECTION");
+            alert.setHeaderText("There currently is no active election. Please contact a polling official.");
+            alert.showAndWait();
+            return;
+        }
         MySQLAccess db = new MySQLAccess();
         try {
             String userNameText = userName.getText();

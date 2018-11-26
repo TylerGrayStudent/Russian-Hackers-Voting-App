@@ -1,5 +1,7 @@
 package com.csci360.electionapp.model;
 
+import com.csci360.electionapp.foundation.MySQLAccess;
+
 import java.util.ArrayList;
 
 public class Ballot {
@@ -33,6 +35,12 @@ public class Ballot {
     }
 
     public Voter getVoter(){ return voter; }
+
+    public void castBallotToDB() throws Exception {
+        MySQLAccess db = new MySQLAccess();
+        db.castVote(this);
+
+    }
 
 
 

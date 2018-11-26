@@ -1,6 +1,7 @@
 package com.csci360.electionapp.controller;
 
 import com.csci360.electionapp.model.Ballot;
+import com.csci360.electionapp.model.UnofficalBallotBox;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 import java.util.ArrayList;
@@ -98,6 +99,10 @@ public class BallotCastedController {
 
         voteResultsText.setText("Vote Result for " + ballot.getVoter().getName());
 
+        this.ballot = ballot;
+
+
+
 
 
 
@@ -110,8 +115,11 @@ public class BallotCastedController {
         main.showLogInWindow();
     }
 
+
     public void setMain(Main main){
         this.main = main;
+        //main.addToUnofficalBox(ballot);
+        main.getBallotBox().getResults();
     }
     public void setBallot(Ballot ballot){ this.ballot = ballot; }
 }

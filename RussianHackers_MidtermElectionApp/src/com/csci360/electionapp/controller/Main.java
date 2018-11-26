@@ -1,9 +1,6 @@
 package com.csci360.electionapp.controller;
 
-import com.csci360.electionapp.model.Ballot;
-import com.csci360.electionapp.model.Election;
-import com.csci360.electionapp.model.Office;
-import com.csci360.electionapp.model.Voter;
+import com.csci360.electionapp.model.*;
 import com.csci360.electionapp.tech.security.Security;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -25,7 +22,7 @@ public class Main extends Application {
     private Office office;
     private Election election;
     private Ballot ballot;
-    private ArrayList<Ballot> unofficalBallotBox = new ArrayList<Ballot>();
+    private UnofficalBallotBox ballotBox;
     /*TODO: Dynamically Generate the Candiadte Screen. Allow the user to tab through the tabs. Create way to store votes. Create Unoffical Tally. Create Official Tally.
 
 
@@ -46,7 +43,7 @@ public class Main extends Application {
         office.addCandidate("Tyler7");
         office.addCandidate("Tyler8");
 
-        Office office2 = new Office("Temp 3");
+        Office office2 = new Office("Temp3");
         office2.addCandidate("Tyler");
         office2.addCandidate("Tyler2");
         office2.addCandidate("Tyler3");
@@ -57,6 +54,8 @@ public class Main extends Application {
         office2.addCandidate("Tyler8");
 
         election.addOffice(office2);
+        //election.publishElection();
+        createBallotBox();
 
     }
 
@@ -64,19 +63,22 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Election System");
-        //election = new Election();
         createTempElection();
         initRootLayout();
         showLogInWindow();
-        //System.out.println(Security.generateStorngPasswordHash("admin"));
-        //showCandidateCreationScreen();
-            //showOfficeCreationScreen(election);
 
     }
 
 
     public void addToUnofficalBox(Ballot ballot){
-        unofficalBallotBox.add(ballot);
+        ballotBox.addBallot(ballot);
+    }
+    public UnofficalBallotBox getBallotBox(){
+        return ballotBox;
+    }
+
+    public void createBallotBox(){
+        ballotBox = new UnofficalBallotBox(election.getOffices());
     }
     public Ballot getBallot(){
         return ballot;
@@ -101,6 +103,7 @@ public class Main extends Application {
     public Office getOffice(){return office;}
 
     public void setOffice(Office o){office = o;}
+
 
     public void initRootLayout() {
         try {
