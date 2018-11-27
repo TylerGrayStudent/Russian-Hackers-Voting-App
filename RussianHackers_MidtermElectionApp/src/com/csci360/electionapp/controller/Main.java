@@ -242,7 +242,13 @@ public class Main extends Application {
             FXMLLoader load = new FXMLLoader();
             load.setLocation(Main.class.getResource("../view/ElectionResultsUI.fxml"));
             AnchorPane electionResults = (AnchorPane) load.load();
+            ElectionResultsController eController = load.getController();
+            eController.initialize(this);
+
             registrationWindow.setCenter(electionResults);
+
+
+
 
             SettingsController controller = loader.getController();
             controller.setMain(this);

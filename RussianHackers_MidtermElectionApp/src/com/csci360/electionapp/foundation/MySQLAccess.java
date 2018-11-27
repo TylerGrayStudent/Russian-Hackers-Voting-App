@@ -11,7 +11,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 
 public class MySQLAccess {
 
@@ -29,28 +31,24 @@ public class MySQLAccess {
     public MySQLAccess(){
 
     }
-   /* public void readDataBase() throws Exception {
-        try {
 
-            // Setup the connection with the DB
-            //String connectionString = "jdbc:mysql://" + dbIP + ":3306/" + dbName + "?user=" + dbUserName + "&password=" + dbPassword;
-            connect = DriverManager
-                    .getConnection(connectionString);
+    public HashMap<Office, String> getResults(Election election) throws Exception {
+        HashMap<Office, String> results = new HashMap<>();
+        for(Office o: election.getOffices()){
+            Connection dbConnection = getConnection();
+            String sql = "SELECT * FROM " + o.nameOfOffice + " ORDER BY vote_count DESC";
+            PreparedStatement res = dbConnection.prepareStatement(sql);
+            //res.setString(1,o.getNameOfOffice());
+            ResultSet rs = res.executeQuery();
+            rs.next();
+            results.put(o,rs.getString(1));
 
-            // Statements allow to issue SQL queries to the database
-            statement = connect.createStatement();
-            // Result set get the result of the SQL query
-            resultSet = statement
-                    .executeQuery("select * from Test.users");
-
-
-        } catch (Exception e) {
-            throw e;
-        } finally {
-            close();
         }
+        return results;
 
-    }*/
+    }
+
+
 
     public String[] getUserInfo(String userName) throws Exception {
         String[]userInfo = new String[2];
