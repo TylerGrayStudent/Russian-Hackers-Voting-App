@@ -1,8 +1,12 @@
 package com.csci360.electionapp.controller;
 
+import com.csci360.electionapp.foundation.MySQLAccess;
 import com.csci360.electionapp.model.*;
+import com.csci360.electionapp.tech.security.Decryption;
+import com.csci360.electionapp.tech.security.Encryption;
 import com.csci360.electionapp.tech.security.Security;
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
@@ -119,6 +123,7 @@ public class Main extends Application {
             primaryStage.show();
 
 
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -197,6 +202,35 @@ public class Main extends Application {
 
     }
 
+    public void showVoterInfoUpdateScreen(String username) throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("../view/SettingsUI.fxml"));
+            BorderPane registrationWindow = (BorderPane) loader.load();
+            rootLayout.setCenter(registrationWindow);
+
+            FXMLLoader load = new FXMLLoader();
+            load.setLocation(Main.class.getResource("../view/VoterInformationUI.fxml"));
+            AnchorPane voterInfo = (AnchorPane) load.load();
+            registrationWindow.setCenter(voterInfo);
+
+            SettingsController controller = loader.getController();
+            VoterUpdateController eController = load.getController();
+
+            controller.setMain(this);
+            eController.setMain(this);
+            eController.initialize(username);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
+
+
+
+    }
+
     public void showCandidateCreationScreen(Office officeFromElection) throws Exception  {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -233,19 +267,43 @@ public class Main extends Application {
 
     }
 
+    public void showElectionResultsWindow() throws Exception{
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("../view/SettingsUI.fxml"));
+            BorderPane registrationWindow = (BorderPane) loader.load();
+            rootLayout.setCenter(registrationWindow);
+
+            FXMLLoader load = new FXMLLoader();
+            load.setLocation(Main.class.getResource("../view/ElectionResultsUI.fxml"));
+            AnchorPane electionResults = (AnchorPane) load.load();
+            registrationWindow.setCenter(electionResults);
+
+            SettingsController controller = loader.getController();
+            ElectionResultsController eController = load.getController();
+
+            controller.setMain(this);
+            eController.setMain(this);
+            eController.initialize(this);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     public void showSettingsWindow() throws Exception{
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("../view/SettingsUI.fxml"));
             BorderPane registrationWindow = (BorderPane) loader.load();
             rootLayout.setCenter(registrationWindow);
-            FXMLLoader load = new FXMLLoader();
-            load.setLocation(Main.class.getResource("../view/ElectionResultsUI.fxml"));
-            AnchorPane electionResults = (AnchorPane) load.load();
-            ElectionResultsController eController = load.getController();
-            eController.initialize(this);
+           // FXMLLoader load = new FXMLLoader();
+           // load.setLocation(Main.class.getResource("../view/ElectionResultsUI.fxml"));
+          //  AnchorPane electionResults = (AnchorPane) load.load();
+          //  ElectionResultsController eController = load.getController();
+         //   eController.initialize(this);
 
-            registrationWindow.setCenter(electionResults);
+         //   registrationWindow.setCenter(electionResults);
 
 
 

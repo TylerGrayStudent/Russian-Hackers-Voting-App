@@ -1,8 +1,10 @@
 package com.csci360.electionapp.tech.security;
 
-import javax.crypto.SecretKeyFactory;
+import javax.crypto.*;
 import javax.crypto.spec.PBEKeySpec;
+import javax.crypto.spec.SecretKeySpec;
 import java.math.BigInteger;
+import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
@@ -16,6 +18,19 @@ import java.security.spec.InvalidKeySpecException;
 
  */
 public class Security {
+/*
+    public static String encryptData(String s) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException {
+        KeyGenerator key = KeyGenerator.getInstance("AES");
+        key.init(256);
+        SecretKey skey = key.generateKey();
+        byte[] raw = skey.getEncoded();
+        SecretKeySpec skeyspec = new SecretKeySpec(raw,"AES");
+        Cipher c = Cipher.getInstance("AES");
+        c.init(Cipher.ENCRYPT_MODE, skey);
+
+
+    }
+    */
 
     public static String generateStorngPasswordHash(String password) throws NoSuchAlgorithmException, InvalidKeySpecException
     {

@@ -72,6 +72,8 @@ public class CandidateOverviewController {
     @FXML
     void submitClicked() throws Exception {
         if(votes.size() != main.getElection().getOffices().size()){
+            System.out.println(main.getElection().getOffices().size());
+            System.out.println(votes.size());
             return;
         }
 
@@ -88,7 +90,27 @@ public class CandidateOverviewController {
     public void updateCandidate(int index, String name){
         labels.get(index).setText(name);
         Office o = main.getElection().getOffices().get(index);
-        votes.add(index, new Vote(name,o.nameOfOffice));
+        try{
+            votes.set(index, new Vote(name,o.getNameOfOffice()));
+        }catch (Exception e){
+            votes.add(index, new Vote(name,o.getNameOfOffice()));
+        }
+
+        /*
+        try{
+            if(votes.get(index) == null) {
+                votes.set(index, new Vote(name, o.nameOfOffice));
+            }
+            else{
+                votes.remove(index);
+                votes.set(index, new Vote(name, o.nameOfOffice));
+            }
+
+        }
+        catch (Exception e){
+            votes.set(index, new Vote(name, o.nameOfOffice));
+        }
+        */
 
     }
 

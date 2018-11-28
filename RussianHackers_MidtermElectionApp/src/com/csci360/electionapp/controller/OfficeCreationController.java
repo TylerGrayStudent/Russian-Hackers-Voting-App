@@ -3,6 +3,7 @@ package com.csci360.electionapp.controller;
 import com.csci360.electionapp.model.Election;
 import com.csci360.electionapp.model.Office;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -51,6 +52,14 @@ public class OfficeCreationController {
 
     @FXML
     void addNewOfficeClicked(MouseEvent event){
+        if(election.getOffices().size() >= 8){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+
+            alert.setTitle("TOO MANY OFFICES");
+            alert.setHeaderText("There is a max of 8 offices allowed per office at this time.");
+            alert.showAndWait();
+            return;
+        }
         if(officeName.getText() != null && !officeName.getText().trim().isEmpty() && !election.containsNameOf(officeName.getText())){
             Office newOffice = new Office(officeName.getText());
             election.addOffice(newOffice);

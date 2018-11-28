@@ -3,6 +3,7 @@ package com.csci360.electionapp.controller;
 import com.csci360.electionapp.foundation.MySQLAccess;
 import com.csci360.electionapp.model.Office;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.text.Text;
 
 import java.util.ArrayList;
@@ -73,6 +74,15 @@ public class ElectionResultsController {
     void exitClicked() throws Exception {
         main.showSettingsWindow();
 
+    }
+
+    @FXML
+    void recountClicked() throws Exception{
+        main.getBallotBox().recount(main.getElection());
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText("Recount Issued");
+        alert.showAndWait();
+        initialize(main);
     }
 
     @FXML

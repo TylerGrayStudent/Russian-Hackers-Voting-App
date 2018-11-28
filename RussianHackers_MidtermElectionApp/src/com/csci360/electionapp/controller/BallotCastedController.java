@@ -1,5 +1,6 @@
 package com.csci360.electionapp.controller;
 
+import com.csci360.electionapp.foundation.MySQLAccess;
 import com.csci360.electionapp.model.Ballot;
 import com.csci360.electionapp.model.UnofficalBallotBox;
 import javafx.fxml.FXML;
@@ -66,7 +67,7 @@ public class BallotCastedController {
     private Text voteResultsText;
 
     @FXML
-    void initialize(Ballot ballot) {
+    void initialize(Ballot ballot) throws Exception {
 
         this.ballot=ballot;
 
@@ -101,6 +102,10 @@ public class BallotCastedController {
 
         this.ballot = ballot;
 
+        MySQLAccess db = new MySQLAccess();
+
+
+
 
 
 
@@ -112,6 +117,9 @@ public class BallotCastedController {
 
     @FXML
     void logOut() throws Exception{
+        MySQLAccess db = new MySQLAccess();
+        db.updateVotedStatus(main.getMainVoter());
+        main.setMainVoter(null);
         main.showLogInWindow();
     }
 

@@ -1,5 +1,7 @@
 package com.csci360.electionapp.model;
 
+import com.csci360.electionapp.foundation.MySQLAccess;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -37,6 +39,17 @@ public class UnofficalBallotBox {
 
 
     }
+
+    public void recount(Election election) throws Exception {
+        MySQLAccess db = new MySQLAccess();
+        db.publishElection(election);
+        for(Ballot b: ballotBox){
+            db.castVote(b);
+        }
+
+
+    }
+
 
 
     public static void main(String args[]){

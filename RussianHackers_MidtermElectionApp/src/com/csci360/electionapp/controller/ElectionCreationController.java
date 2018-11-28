@@ -49,6 +49,25 @@ public class ElectionCreationController {
 
     @FXML
     void publishClicked() throws Exception {
+        try{
+            if(main.getElection() == null){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+
+                alert.setTitle("NO ACTIVE ELECTION");
+                alert.setHeaderText("You need an active election to be able to publish one.");
+                alert.showAndWait();
+                return;
+            }
+        }
+        catch (Exception e){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+
+            alert.setTitle("NO ACTIVE ELECTION");
+            alert.setHeaderText("You need an active election to be able to publish one.");
+            alert.showAndWait();
+            return;
+
+        }
         if(!main.getElection().isActive()){
             main.getElection().publishElection();
             main.createBallotBox();
@@ -56,6 +75,7 @@ public class ElectionCreationController {
             db.publishElection(main.getElection());
             electionStatus.setText(main.getElection().getNameOfElection() + " is the current election and is published.");
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            db.resetVoterStatus();
             alert.setTitle("ELECTION PUBLISHED!");
             alert.setHeaderText("ELECTION PUBLISHED.");
             alert.showAndWait();
@@ -91,6 +111,14 @@ public class ElectionCreationController {
         alert.showAndWait();
         return;
     }
+    if(nameOfElection.getText().trim().isEmpty()){
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+
+        alert.setTitle("Election Cannot Have A Blank Name");
+        alert.setHeaderText("Election Cannot Have A Blank Name.");
+        alert.showAndWait();
+        return;
+    }
         election = new Election(nameOfElection.getText());
         main.setElection(election);
         nameOfElection.clear();
@@ -101,10 +129,18 @@ public class ElectionCreationController {
 
     @FXML
     void endElectionClicked(MouseEvent event) {
-        main.getElection().endElectin();
-        main.setElection(null);
-        electionStatus.setText("There is no current election active.");
-
+        try {
+            main.getElection().endElectin();
+            main.setElection(null);
+            electionStatus.setText("There is no current election active.");
+        }
+        catch (Exception e){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("NO ACTIVE ELECTION");
+            alert.setHeaderText("You need an active election to be able to end one.");
+            alert.showAndWait();
+            return;
+        }
     }
 
     @FXML

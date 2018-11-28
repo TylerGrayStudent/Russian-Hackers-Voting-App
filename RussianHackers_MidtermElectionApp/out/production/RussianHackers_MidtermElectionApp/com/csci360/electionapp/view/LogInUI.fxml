@@ -71,6 +71,11 @@
                <GridPane.margin>
                   <Insets bottom="20.0" right="20.0" />
                </GridPane.margin></Button>
+            <Button mnemonicParsing="false" onMouseClicked="#checkRegStatus" prefHeight="25.0" prefWidth="169.0" text="Check Registration Status" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets right="20.0" />
+               </GridPane.margin>
+            </Button>
          </children>
       </GridPane>
    </children>

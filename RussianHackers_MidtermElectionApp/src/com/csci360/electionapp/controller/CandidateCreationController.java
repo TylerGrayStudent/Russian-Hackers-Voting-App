@@ -2,6 +2,7 @@ package com.csci360.electionapp.controller;
 
 import com.csci360.electionapp.model.Office;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -33,6 +34,14 @@ public class CandidateCreationController {
 
     @FXML
     void createCandidateClicked(MouseEvent event) throws Exception{
+        if(office.getCandidates().size() >= 8){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+
+            alert.setTitle("TOO MANY CANDIDATES");
+            alert.setHeaderText("There is a max of 8 candidates allowed per office at this time.");
+            alert.showAndWait();
+            return;
+        }
         if(candidateName.getText() != null && !candidateName.getText().trim().isEmpty() && !office.contains(candidateName.getText())) {
             office.addCandidate(candidateName.getText());
             //candidateList.getItems().add(candidateName.getText());

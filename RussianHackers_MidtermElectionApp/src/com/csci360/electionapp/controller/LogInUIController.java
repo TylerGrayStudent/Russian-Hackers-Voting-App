@@ -5,15 +5,13 @@ import com.csci360.electionapp.foundation.MySQLAccess;
 import com.csci360.electionapp.model.Voter;
 import com.gluonhq.charm.glisten.control.TextField;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.Optional;
 
 public class LogInUIController {
 
@@ -44,8 +42,44 @@ public class LogInUIController {
     public LogInUIController(){
 
     }
+
     @FXML
-    void loginclicked(MouseEvent event) throws InvalidKeySpecException, NoSuchAlgorithmException {
+    void checkRegStatus() throws Exception {
+        MySQLAccess db = new MySQLAccess();
+        TextInputDialog dialog = new TextInputDialog("username");
+        dialog.setTitle("Check Registration Status");
+        dialog.setHeaderText("Check Registration Status");
+        dialog.setContentText("Please enter your user name:");
+
+        Optional<String> res = dialog.showAndWait();
+        if(res.isPresent()){
+            if(db.checkRegStatus(res.get())){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("User is registered");
+                alert.setHeaderText("Awesome!!");
+                alert.setContentText("You are registered and can log in!");
+                alert.showAndWait();
+            }
+            else{
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("User is not registered");
+                alert.setContentText("You are not registered. Please register. Contact a poll official for any help needed!");
+                alert.showAndWait();
+            }
+        }
+    }
+    @FXML
+    void loginclicked(MouseEvent event) throws Exception {
+        if(userName.getText().trim().isEmpty() || password.getText().trim().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+
+            alert.setTitle("Blank Fields");
+            alert.setHeaderText("Please make sure you enter both a user name and password to log in.");
+            alert.showAndWait();
+
+
+            return;
+        }
         //String userUserName = userName.getText().toLowerCase();
         //String userPasswordHashed = Security.generateStorngPasswordHash(password.getText());
         //String userAuthentication = authentication.getText();
@@ -57,6 +91,16 @@ public class LogInUIController {
             return;
         }
         MySQLAccess db = new MySQLAccess();
+        if(db.checkRegStatus(userName.getText())) {
+            if (db.checkVotedStatus(userName.getText())) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("USER ALREADY VOTED");
+                alert.setHeaderText("You have already voted for the current election. Remember to vote next year!!");
+                alert.showAndWait();
+
+                return;
+            }
+        }
         try {
             String userNameText = userName.getText();
             String passwordText = password.getText();

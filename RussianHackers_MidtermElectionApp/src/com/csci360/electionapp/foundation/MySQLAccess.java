@@ -1,6 +1,7 @@
 package com.csci360.electionapp.foundation;
 
 import com.csci360.electionapp.model.*;
+import com.csci360.electionapp.tech.security.Decryption;
 import com.csci360.electionapp.tech.security.Security;
 
 import java.security.NoSuchAlgorithmException;
@@ -41,13 +42,44 @@ public class MySQLAccess {
             //res.setString(1,o.getNameOfOffice());
             ResultSet rs = res.executeQuery();
             rs.next();
-            results.put(o,rs.getString(1));
+            results.put(o,rs.getString(1) + " - " + rs.getString(2));
 
         }
         return results;
 
     }
 
+    public boolean checkVotedStatus(String userName) throws Exception{
+        Connection dbConnection = getConnection();
+        String getUserIDSQL = "SELECT * from users where username = ?";
+        PreparedStatement getUserIDStatement = dbConnection.prepareStatement(getUserIDSQL);
+        getUserIDStatement.setString(1,userName);
+        ResultSet rs = getUserIDStatement.executeQuery();
+        rs.next();
+
+        String voted = rs.getString(4);
+        if(voted.equals("0")){
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+    public boolean checkRegStatus(String userName) throws Exception{
+        Connection dbConnection = getConnection();
+        String getUserIDSQL = "SELECT userID from users where username = ?";
+        PreparedStatement getUserIDStatement = dbConnection.prepareStatement(getUserIDSQL);
+        getUserIDStatement.setString(1,userName);
+        ResultSet rs = getUserIDStatement.executeQuery();
+        if(!rs.next()){
+            return false;
+        }
+        else{
+            return true;
+        }
+
+    }
 
 
     public String[] getUserInfo(String userName) throws Exception {
@@ -74,6 +106,92 @@ public class MySQLAccess {
 
         return userInfo;
     }
+
+    public void updateUserByID(ArrayList<String> newData) throws Exception {
+        String sql = "UPDATE `election_system`.`voterInfo` SET " +
+                "`firstName` = ? ," +
+                "`lastName` = ? ," +
+                "`address` = ? ," +
+                "`zipCode` = ? ," +
+                "`ssn` = ? ," +
+                "`dlNumber` = ? " +
+                "WHERE `userID` = ?;";
+
+        Connection connection = getConnection();
+
+        PreparedStatement statement = connection.prepareStatement(sql);
+        for(int i = 1; i < newData.size();i++) {
+            statement.setString(i, newData.get(i));
+        }
+        statement.setString(7,newData.get(0));
+        System.out.println(statement);
+        statement.executeUpdate();
+
+    }
+
+    public  ArrayList<String> getUserData(String userName) throws Exception {
+        ArrayList<String> info = new ArrayList<>();
+        Connection connection = getConnection();
+
+        String sql = "SELECT userID from users where username = ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setString(1,userName);
+
+        ResultSet userIDRS = statement.executeQuery();
+        userIDRS.next();
+        String userID = userIDRS.getString(1);
+
+        String getNameSQL = "SELECT * from voterInfo where userID = ?";
+        PreparedStatement getNameStatement = connection.prepareStatement(getNameSQL);
+        getNameStatement.setString(1,userID);
+
+        ResultSet rs = getNameStatement.executeQuery();
+        rs.next();
+
+        Decryption decryption = new Decryption();
+
+        for(int i = 1; i <= 7; i++ ){
+            if(i == 6 || i == 7){
+                info.add(decryption.decrypt(rs.getString(i)));
+            }
+            else {
+
+
+                info.add(rs.getString(i));
+            }
+           // System.out.println(i);
+           // System.out.println(rs.getString(i));
+
+        }
+
+        return info;
+
+
+
+
+
+
+
+
+
+    }
+    public void resetVoterStatus() throws Exception {
+
+        String sql = "UPDATE `election_system`.`users` SET `voted` = 0;";
+        Connection connection = getConnection();
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.executeUpdate();
+
+    }
+
+    public void updateVotedStatus(Voter v) throws Exception {
+        String sql = "UPDATE `election_system`.`users` SET `voted` = 1 WHERE (`userID` = ?);";
+        Connection connection = getConnection();
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setString(1,v.getUserID());
+        statement.executeUpdate();
+    }
+
 
     public void castVote(Ballot b) throws Exception {
         PreparedStatement statement = null;
@@ -105,7 +223,7 @@ public class MySQLAccess {
                 "  (`officeID` INT NOT NULL AUTO_INCREMENT,";
 
         for(Office o:election.getOffices()){
-            sql = sql + o.getNameOfOffice() + "  VARCHAR(45) NOT NULL,";
+            sql = sql + "" + o.getNameOfOffice() + " VARCHAR(45) NOT NULL,";
         }
         sql = sql + "  PRIMARY KEY (`officeID`));";
 
@@ -117,7 +235,7 @@ public class MySQLAccess {
             dropTablesql = String.format("DROP TABLE IF EXISTS %s", o.getNameOfOffice());
             dropTable = connection.prepareStatement(dropTablesql);
             dropTable.execute();
-            sql = "CREATE TABLE " + o.getNameOfOffice() + "( `candidate` VARCHAR(45) NOT NULL, `vote_count` INT ,PRIMARY KEY (`candidate`));";
+            sql = "CREATE TABLE " + o.getNameOfOffice() + " ( `candidate` VARCHAR(45) NOT NULL, `vote_count` INT ,PRIMARY KEY (`candidate`));";
         System.out.println(sql);
             createDB = connection.prepareStatement(sql);
             createDB.execute();
@@ -249,17 +367,6 @@ public class MySQLAccess {
 
 
 
-    private void writeMetaData(ResultSet resultSet) throws SQLException {
-        //  Now get some metadata from the database
-        // Result set get the result of the SQL query
-
-        System.out.println("The columns in the table are: ");
-
-        System.out.println("Table: " + resultSet.getMetaData().getTableName(1));
-        for  (int i = 1; i<= resultSet.getMetaData().getColumnCount(); i++){
-            System.out.println("Column " +i  + " "+ resultSet.getMetaData().getColumnName(i));
-        }
-    }
 
 
     // You need to close the resultSet
@@ -281,7 +388,5 @@ public class MySQLAccess {
         }
     }
 
-    public static void main(String[] args) throws Exception {
 
-    }
 }

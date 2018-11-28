@@ -11,6 +11,7 @@ public class Voter {
         allowedToVote = true;
     }
 
+    public String getUserID(){ return userID; }
     public boolean checkedIfCanVote(){
         return allowedToVote;
     }
