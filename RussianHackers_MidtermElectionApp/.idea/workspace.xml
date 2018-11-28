@@ -1,35 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="RussianHackers_MidtermElectionApp:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="2c68bed3-44cf-4c90-972f-2ec61e0da5aa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/commons-codec-1.11.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/csci360/electionapp/controller/VoterUpdateController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/csci360/electionapp/tech/security/Decryption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/csci360/electionapp/tech/security/Encryption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/csci360/electionapp/view/VoterInformationUI.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RussianHackers_MidtermElectionApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RussianHackers_MidtermElectionApp.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RussianHackers_MidtermElectionApp/com/csci360/electionapp/view/LogInUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RussianHackers_MidtermElectionApp/com/csci360/electionapp/view/LogInUI.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RussianHackers_MidtermElectionApp/com/csci360/electionapp/view/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RussianHackers_MidtermElectionApp/com/csci360/electionapp/view/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/csci360/electionapp/controller/BallotCastedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/csci360/electionapp/controller/BallotCastedController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/csci360/electionapp/controller/CandidateCreationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/csci360/electionapp/controller/CandidateCreationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/csci360/electionapp/controller/CandidateOverviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/csci360/electionapp/controller/CandidateOverviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/csci360/electionapp/controller/ElectionCreationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/csci360/electionapp/controller/ElectionCreationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/csci360/electionapp/controller/ElectionResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/csci360/electionapp/controller/ElectionResultsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/csci360/electionapp/controller/LogInUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/csci360/electionapp/controller/LogInUIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/csci360/electionapp/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/csci360/electionapp/controller/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/csci360/electionapp/controller/NewVoterRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/csci360/electionapp/controller/NewVoterRegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/csci360/electionapp/controller/OfficeCreationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/csci360/electionapp/controller/OfficeCreationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/csci360/electionapp/controller/SettingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/csci360/electionapp/controller/SettingsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/csci360/electionapp/foundation/MySQLAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/csci360/electionapp/foundation/MySQLAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/csci360/electionapp/model/UnofficalBallotBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/csci360/electionapp/model/UnofficalBallotBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/csci360/electionapp/model/Voter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/csci360/electionapp/model/Voter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/csci360/electionapp/tech/security/Security.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/csci360/electionapp/tech/security/Security.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/csci360/electionapp/view/ElectionResultsUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/csci360/electionapp/view/ElectionResultsUI.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/csci360/electionapp/view/LogInUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/csci360/electionapp/view/LogInUI.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/csci360/electionapp/view/NewVoterRegistrationUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/csci360/electionapp/view/NewVoterRegistrationUI.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/csci360/electionapp/view/SettingsUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/csci360/electionapp/view/SettingsUI.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/csci360/electionapp/view/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/csci360/electionapp/view/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/csci360/electionapp/controller/VoterUpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/csci360/electionapp/controller/VoterUpdateController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,6 +25,28 @@
   </component>
   <component name="CoverageViewManager">
     <option name="myElementSize" value="293" />
+  </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/com/csci360/electionapp/controller/VoterUpdateController.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="884">
+                    <caret line="115" column="9" selection-start-line="115" selection-start-column="9" selection-end-line="115" selection-end-column="9" />
+                    <folding>
+                      <element signature="imports" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1561923059">
@@ -63,7 +65,7 @@
           <entry key="class" value="1" />
           <entry key="css" value="3" />
           <entry key="fxml" value="45" />
-          <entry key="java" value="155" />
+          <entry key="java" value="158" />
           <entry key="jpg" value="3" />
           <entry key="png" value="7" />
           <entry key="psd" value="1" />
@@ -75,7 +77,7 @@
           <entry key="CLASS" value="1" />
           <entry key="CSS" value="3" />
           <entry key="Image" value="10" />
-          <entry key="JAVA" value="155" />
+          <entry key="JAVA" value="158" />
           <entry key="XML" value="45" />
         </counts>
       </usages-collector>
@@ -84,13 +86,13 @@
           <entry key="css" value="10" />
           <entry key="dummy" value="40" />
           <entry key="fxml" value="108" />
-          <entry key="java" value="23821" />
+          <entry key="java" value="23855" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="10" />
-          <entry key="JAVA" value="23820" />
+          <entry key="JAVA" value="23854" />
           <entry key="PLAIN_TEXT" value="40" />
           <entry key="SQL" value="1" />
           <entry key="XML" value="108" />
@@ -103,7 +105,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/csci360/electionapp/controller/OfficeCreationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
+            <state relative-caret-position="638">
               <caret line="68" column="9" lean-forward="true" selection-start-line="68" selection-start-column="9" selection-end-line="68" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -161,18 +163,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/csci360/electionapp/controller/VoterUpdateController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="68" selection-start-line="68" selection-end-line="68" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/csci360/electionapp/tech/security/Decryption.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
@@ -184,20 +174,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/csci360/electionapp/controller/NewVoterRegistrationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-799">
-              <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="40" />
+            <state relative-caret-position="34">
+              <caret line="136" column="7" selection-start-line="136" selection-start-column="7" selection-end-line="160" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/csci360/electionapp/foundation/MySQLAccess.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="167">
               <caret line="115" column="28" selection-start-line="115" selection-start-column="28" selection-end-line="115" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/csci360/electionapp/model/JUnitTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
@@ -210,16 +209,6 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/csci360/electionapp/view/VoterInformationUI.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="298" selection-start-line="11" selection-start-column="298" selection-end-line="11" selection-end-column="298" />
             </state>
           </provider>
         </entry>
@@ -285,8 +274,8 @@
         <option value="$PROJECT_DIR$/src/com/csci360/electionapp/view/VoterInformationUI.fxml" />
         <option value="$PROJECT_DIR$/src/com/csci360/electionapp/controller/SettingsController.java" />
         <option value="$PROJECT_DIR$/src/com/csci360/electionapp/controller/Main.java" />
-        <option value="$PROJECT_DIR$/src/com/csci360/electionapp/controller/VoterUpdateController.java" />
         <option value="$PROJECT_DIR$/src/com/csci360/electionapp/foundation/MySQLAccess.java" />
+        <option value="$PROJECT_DIR$/src/com/csci360/electionapp/controller/VoterUpdateController.java" />
       </list>
     </option>
   </component>
@@ -376,11 +365,11 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543447592840" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543448133322" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/commons-codec-1.11.jar!/" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -438,18 +427,18 @@
       <workItem from="1541705643385" duration="639000" />
       <workItem from="1542650647766" duration="13386000" />
       <workItem from="1542690785048" duration="1181000" />
-      <workItem from="1543074540234" duration="47730000" />
+      <workItem from="1543074540234" duration="48147000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62936000" />
+    <option name="totallyTimeSpent" value="63353000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16613673" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16613673" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -458,14 +447,14 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23752712" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.23752712" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.329718" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.329718" />
       <window_info anchor="right" id="Coverage" side_tool="true" weight="0.3298887" />
@@ -529,13 +518,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/csci360/electionapp/model/JUnitTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -786,23 +768,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/csci360/electionapp/controller/OfficeCreationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="68" column="9" lean-forward="true" selection-start-line="68" selection-start-column="9" selection-end-line="68" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/csci360/electionapp/controller/NewVoterRegistrationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-799">
-          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/csci360/electionapp/view/SettingsUI.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor" />
@@ -865,20 +830,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/csci360/electionapp/controller/VoterUpdateController.java">
+    <entry file="file://$PROJECT_DIR$/src/com/csci360/electionapp/foundation/MySQLAccess.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
+        <state relative-caret-position="167">
+          <caret line="115" column="28" selection-start-line="115" selection-start-column="28" selection-end-line="115" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/csci360/electionapp/model/JUnitTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/csci360/electionapp/controller/OfficeCreationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="68" column="9" lean-forward="true" selection-start-line="68" selection-start-column="9" selection-end-line="68" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/csci360/electionapp/foundation/MySQLAccess.java">
+    <entry file="file://$PROJECT_DIR$/src/com/csci360/electionapp/controller/NewVoterRegistrationController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="115" column="28" selection-start-line="115" selection-start-column="28" selection-end-line="115" selection-end-column="28" />
+        <state relative-caret-position="34">
+          <caret line="136" column="7" selection-start-line="136" selection-start-column="7" selection-end-line="160" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/csci360/electionapp/controller/VoterUpdateController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="115" column="9" selection-start-line="115" selection-start-column="9" selection-end-line="115" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -888,10 +877,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>RussianHackers_MidtermElectionApp:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
