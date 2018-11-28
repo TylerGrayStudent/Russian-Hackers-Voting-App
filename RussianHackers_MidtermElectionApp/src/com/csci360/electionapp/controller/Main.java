@@ -67,7 +67,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Election System");
-        createTempElection();
+        //createTempElection();
         initRootLayout();
         showLogInWindow();
 
